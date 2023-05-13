@@ -11,8 +11,8 @@ fetch('api/', {
     'Content-Type': 'Application/JSON',
   },
   body: JSON.stringify({
-    name: '<username>',
-    userId: '<userId>',
+    name: '<name>',
+    userId: '<username>',
     password: '<password>',
   }),
 });
