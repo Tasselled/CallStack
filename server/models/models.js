@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const MONGO_URI =
   'mongodb+srv://sjkim:teamdesk@cluster0.i4p1ki5.mongodb.net/?retryWrites=true&w=majority';
 
+// looks like this url is incorrect, likely password is wrong
+
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
