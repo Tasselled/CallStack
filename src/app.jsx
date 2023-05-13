@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { currentUser } from './store/userReducer';
+import { setCurrentUser } from './store/userReducer';
+import MainPage from './pages/mainPage'
+import LoginPage from './pages/loginPage'
+import SignUpPage from './pages/signUpPage'
+import PostPage from './pages/postPage'
 
 
 function App() {
+    const currentUser = useSelector(state => state.userReducer.currentUser)
+    const currentPost = useSelector(state => state.userReducer.currentPost)
     
-    //     return (
-    //         <Routes>
-    //             <Route path='/' element={mainContainer}/>
-    //             {/* <Route path='/api' element={Main container}/> */}
-    //         </Routes>
-    //     );
+        return (
+            <Routes>
+                <Route path={`/${currentUser}/${currentPost}`} element={<PostPage />}/>
+                <Route path={`/${currentUser}`} element={<MainPage />}/>                
+                <Route path='/signup' element={<SignUpPage />}/>
+                <Route path='/' element={<LoginPage />}/>
+            </Routes>
+        );
  }
 
 //   const username = useSelector(state=> state.userReducer.currentUser)

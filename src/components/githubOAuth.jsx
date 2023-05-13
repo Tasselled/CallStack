@@ -10,7 +10,7 @@ export default function GithubOAuth() {
   }
 
   return (
-    <button onClick={fetchGHOAuth}>click me</button>
+    <button onClick={fetchGHOAuth}>Github OAuth</button>
   )
 }
 
