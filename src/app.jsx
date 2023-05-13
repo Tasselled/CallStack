@@ -5,14 +5,14 @@ import { currentUser } from './store/userReducer';
 
 
 function App() {
-
-    // return (
-    //     <Routes>
-    //         <Route path='/' element={Login Page}/>
-    //         <Route path='/api' element={Main container}/>
-    //     </Routes>
-    // );
-}
+    
+    //     return (
+    //         <Routes>
+    //             <Route path='/' element={mainContainer}/>
+    //             {/* <Route path='/api' element={Main container}/> */}
+    //         </Routes>
+    //     );
+ }
 
 //   const username = useSelector(state=> state.userReducer.currentUser)
 //   const dispatch = useDispatch();
