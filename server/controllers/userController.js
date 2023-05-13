@@ -2,10 +2,11 @@ const User = require('../models/models');
 
 const userController = {};
 
+// Creating a new user
 userController.createUser = (req, res, next) => {
-  const { name, userId, password } = req.body;
+  const { name, username, password } = req.body;
 
-  User.create({ name, userId, password })
+  User.create({ name, username, password })
     .then((data) => {
       res.locals.dataCreated = data;
       return next();
@@ -15,6 +16,24 @@ userController.createUser = (req, res, next) => {
         log: `createUser: ${err}`,
         status: 400,
         message: { err: 'error occurred in createUser controller' },
+      });
+    });
+};
+
+// Finding a user
+userController.findUser = (req, res, next) => {
+  const { name } = req.params;
+
+  User.find({ name: name })
+    .then((data) => {
+      res.locals.dataFound = data;
+      return next();
+    })
+    .catch((err) => {
+      return next({
+        log: `findUser: ${err}`,
+        status: 400,
+        message: { err: 'error occurred in findUser controller' },
       });
     });
 };

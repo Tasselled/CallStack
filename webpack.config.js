@@ -26,7 +26,10 @@ module.exports = {
       '/static/**': {
         target: 'http://localhost:3000/',
       },
-      '/api/**': {
+      '/login/**': {
+        target: 'http://localhost:3000/',
+      },
+      '/main/**': {
         target: 'http://localhost:3000/',
       },
     },
