@@ -1,4 +1,5 @@
 import React from "react";
+import GithubOAuth from "../components/githubOAuth";
 
 function SignUpPage () {
 
@@ -28,6 +29,8 @@ function SignUpPage () {
     <div>
         <button>Sign Up</button>
     </div>
+
+    <GithubOAuth/>
 
     <div>
       <p>Already a member?</p>

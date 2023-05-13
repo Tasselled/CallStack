@@ -5,15 +5,19 @@ export const userReducer = createSlice({
   name: 'userReducer',
   initialState: {
     currentUser: null,
+    currentPost: null
   },
 
   reducers: {
-    currentUser: (state, action) => {
+    setCurrentUser: (state, action) => {
       state.currentUser = action.payload;
-    }
+    },
+    setCurrentPost: (state, action) => {
+      state.currentPost = action.payload;
+    },
   }
 })
 
-export const {currentUser} = userReducer.actions;
+export const {setCurrentUser, setCurrentPost} = userReducer.actions;
 
 export default userReducer.reducer; 
