@@ -1,9 +1,9 @@
 import React from "react";
 import NavBar from "../components/navBar";
 import PostBar from "../components/postBar";
-import SubContainer from "./subContainer";
+import SubContainer from "../containers/subContainer";
 
-function MainContainer () {
+function MainPage () {
   return (
     <div>
        <NavBar />
@@ -16,4 +16,4 @@ function MainContainer () {
   );
 };
 
-export default MainContainer
+export default MainPage
