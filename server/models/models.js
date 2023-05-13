@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Connecting to MongoDB
 const MONGO_URI =
-  'mongodb+srv://sjkim:USeR29XdgTgKHq8y@cluster0.i4p1ki5.mongodb.net/?retryWrites=true&w=majority';
+  'mongodb+srv://sjkim:teamdesk@cluster0.i4p1ki5.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose
   .connect(MONGO_URI, {
@@ -19,7 +19,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   name: { type: String, required: true },
   profilePic: { type: String, default: 'someUrl' },
-  userId: { type: String, required: true },
+  username: { type: String, required: true },
   password: { type: Number, required: true },
 });
 
