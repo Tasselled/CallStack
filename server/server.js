@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use('/static', express.static(path.resolve(__dirname, '../src')));
 
 // Requiring all controllers
-const userController = require('../controllers/userController');
+const userController = require('./controllers/userController');
 
 // Require all Routers:
 const userRouter = express.Router();
