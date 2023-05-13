@@ -23,10 +23,10 @@ module.exports = {
 
     headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
-      '/assets/**': {
+      '/static/**': {
         target: 'http://localhost:3000/',
       },
-      '/server/**': {
+      '/api/**': {
         target: 'http://localhost:3000/',
       },
     },
@@ -48,7 +48,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?/,
-        exclude: /node_modules/, 
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {

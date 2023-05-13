@@ -11,17 +11,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Handling request for static files
-app.use(express.static(path.resolve(__dirname, '../src')));
+app.use('/static', express.static(path.resolve(__dirname, '../src')));
 
 // Defining route handlers
 app.use('/api', apiRouter);
-app.use((req, res) =>
-  res.status(404).send("This is not the page you're looking for")
-);
 
 // 404 error handler
 app.use('*', (req, res) => {
-  res.status(404).send('Not Found');
+  res.status(404).send("This is not the page you're looking for");
 });
 
 // Global error handler
