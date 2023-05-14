@@ -1,0 +1,562 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
+$publicFontFamily: 'Share Tech', sans-serif;
+
+body {
+  margin: 0;
+}
+
+.welcomePage {
+  background-color: black;
+  color: white;
+  font-family: $publicFontFamily;
+}
+
+.mobileLogo {
+  display: none;
+}
+
+.mobileSign {
+  display: none;
+}
+
+@media screen and (max-width: 1250px) {
+  .publicNavBarSearch {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .publicNavBar {
+    display: none;
+  }
+
+  .mobileLogo {
+    font-size: 50px;
+    color: white;
+    display: block;
+    position: absolute;
+    z-index: 9;
+    left: 45%;
+    right: auto;
+    top: 10px;
+  }
+
+  .mobileLogo:hover {
+    cursor: pointer;
+  }
+
+  .mobileSign {
+    font-size: 16px;
+    color: white;
+    display: inline-block;
+    position: relative;
+    z-index: 9;
+    top: 15px;
+  }
+}
+
+.publicNavBar {
+  font-family: 'Share Tech', sans-serif;
+  font-size: 18px;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0);
+  padding-top: 15px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  z-index: 9;
+}
+
+.navBarDiv {
+  display: inline-block;
+}
+
+.publicNavBarLink {
+  color: white;
+  text-decoration: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  font-size: 18px;
+}
+
+.publicNavBarLink:hover {
+  color: rgb(223, 223, 223);
+}
+
+
+.publicNavBarDropdown {
+  display: inline-block;
+  padding: 5px;
+  padding-top: 0px;
+}
+
+.leftSideNavBar {
+  margin-right: 15%;
+  margin-left: 5px;
+}
+
+.rightSideNavBar {
+  margin-left: 15%;
+  margin-right: 5px;
+}
+
+.publicSignupButton {
+  border: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  padding: 7px;
+}
+
+.otterLogo {
+  position: relative;
+  font-size: 35px;
+  top: 5px;
+  transition: 0.25s;
+}
+
+.otterLogo:hover {
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.publicNavBarSearch {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: 'Share Tech', sans-serif;
+  padding: 5px;
+  padding-left: 10px;
+  width: 250px;
+}
+
+.publicNavBarSearch:focus {
+  background-color: rgba(255, 255, 255, 0.9);
+  outline: none;
+}
+
+.mainPublicContainer {
+  color: white;
+  padding: 10%;
+}
+
+.publicBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+
+@keyframes fireAnimation {
+  0% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  10% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  20% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  30% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  40% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  50% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  60% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  70% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  80% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  90% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgb(255, 127, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+  100% {
+    border-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(255, 127, 0),
+        rgb(255, 0, 0),
+        rgb(255, 32, 0),
+        rgb(255, 64, 0),
+        rgb(255, 96, 0),
+        rgb(255, 127, 0),
+        rgb(255, 159, 0),
+        rgb(255, 191, 0),
+        rgb(255, 224, 0),
+        rgba(255, 255, 0),
+        rgba(0, 0, 0, 0)
+      )
+      1;
+  }
+}
+
+.lineSVG {
+  position: relative;
+  border: solid;
+  border-width: 2px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 14%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 0;
+  height: 260px;
+  animation-name: fireAnimation;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  z-index: 1;
+}
+
+.introduction {
+  position: relative;
+  z-index: 1;
+  font-family: $publicFontFamily;
+  padding-top: 13%;
+}
+
+.introductionIntro {
+  font-size: 70px;
+}
+
+.introductionText {
+  font-size: 24px;
+  padding-top: 14px;
+  color: rgb(223, 223, 223);
+}
+
+#everyoneText {
+  font-size: 28px;
+  color: white;
+}
+
+#heartText {
+  font-size: 28px;
+  color: white;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+@keyframes heartbeat {
+  0% {
+    font-size: 28px;
+  }
+  20% {
+    font-size: 32px;
+  }
+  40% {
+    font-size: 28px;
+  }
+  60% {
+    font-size: 32px;
+  }
+  80% {
+    font-size: 28px;
+  }
+  100% {
+    font-size: 28px;
+  }
+}
+
+#heartText:hover {
+  animation: heartbeat 1s infinite;
+  cursor: pointer;
+}
+
+#learnText {
+  font-size: 28px;
+  color: yellow;
+  transition: 0.5s;
+}
+
+#learnText:hover {
+  color: rgb(255, 145, 0);
+}
+
+#growText {
+  font-size: 28px;
+  color: green;
+  transition: 0.5s;
+}
+
+#growText:hover {
+  font-size: 32px;
+}
+
+hr {
+  width: 70%;
+  margin-bottom: 0%;
+  border: none;
+  height: 1px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.publicFooter {
+  padding-left: 15%;
+  padding-right: 5%;
+  padding-bottom: 0%;
+  padding-top: 2%;
+}
+
+.footerTableColOne {
+  min-width: 200px;
+  display: inline-block;
+  text-align: left;
+  width: 30%;
+  vertical-align: top;
+  padding: 1%;
+}
+
+.footerTableCol {
+  padding: 1%;
+  display: inline-block;
+  text-align: left;
+  width: 15%;
+  vertical-align: top;
+  min-width: 200px;
+}
+
+.subscribeButton {
+  padding: 12px;
+  padding-left: 24px;
+  padding-right: 24px;
+  font-family: $publicFontFamily;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: solid;
+  border-width: 1px;
+  border-radius: 10px;
+}
+
+.subscribeButton:hover {
+  cursor: pointer;
+  color: rgb(223, 223, 223);
+}
+
+.footerLink:hover {
+  cursor: pointer;
+  color: rgb(223, 223, 223);
+  text-decoration: underline;
+}
+
+.githubLogo {
+  position: relative;
+  font-size: 35px;
+  top: 5px;
+  transition: 0.25s;
+  padding-left: 20px;
+  padding-bottom: 15px;
+}
+
+.githubLogo:hover {
+  cursor: pointer;
+  color: white;
+  transform: scale(1.1);
+}
+
+.footerFooter {
+  background-image: linear-gradient(black, rgb(15, 31, 100));
+  text-align: center;
+  font-size: 14px;
+}
+
+.bottomBottom {
+  display: inline-block;
+  padding-top: 3%;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 1%;
+}
+
+.bottomHeart {
+  color: red;
+}
+
+.sjk06:hover {
+  color: rgb(255, 255, 149);
+}
+
+.praisepelumi:hover {
+  color: rgb(156, 252, 156)
+}
+
+.evramdawd:hover {
+  color: rgb(255, 128, 128);
+}
+
+.HShaw215:hover {
+  color: rgb(105, 165, 255);
+}
+
+.kfan1:hover {
+  color: rgb(159, 124, 255)
+}
