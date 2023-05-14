@@ -1,4 +1,4 @@
-const User = require('../models/models');
+const { User } = require('../models/models');
 
 const userController = {};
 
@@ -24,7 +24,7 @@ userController.createUser = (req, res, next) => {
 userController.findUser = (req, res, next) => {
   const { username } = req.params;
 
-  User.find({ username: username })
+  User.findOne({ username: username })
     .then((data) => {
       res.locals.dataFound = data;
       return next();
