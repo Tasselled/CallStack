@@ -23,9 +23,21 @@ fetch('/login', {
 ```
 
 ### Find user based on username
-Send a fetch get request to the server with the parameters containing the required information. Returned data will contain an array of the person with that username .
+Send a fetch get request to the server with the parameters containing the required information. Returned data will be and object.
 
 ```
 fetch('/login/<username>')
 .then(res => res.json())
+
+// response value
+
+{
+  _id: <userID>,
+firstName: "Sooji",
+lastName: "Kim",
+profilePic: "someUrl",
+username: "sjkim",
+password: "1234",
+__v: 0
+}
 ```
