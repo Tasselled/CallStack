@@ -6,6 +6,7 @@ import MainPage from './pages/mainPage'
 import LoginPage from './pages/loginPage'
 import SignUpPage from './pages/signUpPage'
 import PostPage from './pages/postPage'
+import WelcomePage from './pages/WelcomePage';
 
 
 function App() {
@@ -19,8 +20,9 @@ function App() {
             <Routes>
                 <Route path={`/${currentUser}/${currentPost}`} element={<PostPage />}/>
                 <Route path={`/${currentUser}`} element={<MainPage />}/>                
-                <Route path='/signup' element={<SignUpPage />}/>
-                <Route path='/' element={<LoginPage />}/>
+                <Route path='/signuppage' element={<SignUpPage />}/>
+                <Route path='/loginpage' element={<LoginPage />}/>
+                <Route path='/' element={<WelcomePage />}/>
             </Routes>
         );
  }
