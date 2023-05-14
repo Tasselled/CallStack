@@ -25,7 +25,7 @@ fetch('/login', {
 });
 ```
 
-### creating a user with GitHub OAuth
+### Creating a user with GitHub OAuth
 
 Using GitHub will return an access token object that will be stored locally in the user's browser as well as in our MongoDB servers. Future access to the user will be granted through verifying the token in the user's cookies. User can generate a new token if their token expires or is lost by re-authenticating through GitHub.
 
