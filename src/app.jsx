@@ -11,6 +11,9 @@ import PostPage from './pages/postPage'
 function App() {
     const currentUser = useSelector(state => state.userReducer.currentUser)
     const currentPost = useSelector(state => state.userReducer.currentPost)
+
+    // if sesssion id cookie exists in database, set currentUser to username
+    // navigate to /currentUser
     
         return (
             <Routes>
