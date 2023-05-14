@@ -2,8 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <div className='publicFooter'>
-      <hr />
+    <div className='publicFooter'>      
       <div className='footerTableColOne'>
       <i className='fa-solid fa-otter otterLogo'></i>
         <a onClick={()=>{window.location.href='https://github.com/Tasselled/CallStack'}}><i className="fa-brands fa-github githubLogo"></i></a>        
@@ -46,6 +45,6 @@ export default function Footer() {
         <p className='footerLink'>Features</p>
         <p className='footerLink'>Features</p>
       </div>
-    </div>
+    </div>    
   );
 }

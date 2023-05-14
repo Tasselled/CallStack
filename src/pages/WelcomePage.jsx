@@ -3,6 +3,7 @@ import '../stylesheets/welcomePageStyles.scss';
 import WelcomePageNavBar from '../containers/public/WelcomePageNavBar';
 import PublicContainer from '../containers/public/PublicContainer';
 import Footer from '../containers/public/Footer';
+import FooterFooter from '../containers/public/FooterFooter';
 import { Link } from 'react-router-dom';
 
 export default function WelcomePage() {
@@ -17,7 +18,9 @@ export default function WelcomePage() {
       </Link>
       <WelcomePageNavBar />
       <PublicContainer />
+      <hr />
       <Footer />
+      <FooterFooter />
     </div>
   );
 }
