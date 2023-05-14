@@ -1,8 +1,6 @@
 const express = require('express');
+const mainRouter = express.Router();
 
 // Requiring all controllers
-const userController = require('../controllers/userController');
-
-const mainRouter = express.Router();
 
 module.exports = mainRouter;

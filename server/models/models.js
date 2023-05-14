@@ -21,7 +21,7 @@ const userSchema = new Schema({
   lastName: { type: String, required: true },
   profilePic: { type: String, default: 'someUrl' },
   username: { type: String, required: true, unique: true },
-  password: { type: Number, required: true },
+  password: { type: String, required: true },
 });
 
 const User = mongoose.model('user', userSchema);
