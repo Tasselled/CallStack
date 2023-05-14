@@ -60,3 +60,6 @@ const Comment = mongoose.model('comment', commentSchema);
 // const Subcomment = mongoose.model('subcomment', subcommentSchema);
 
 module.exports = { User, Post, Comment };
+
+// database collection of collections
+// collection is a collection of documents
