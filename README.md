@@ -57,6 +57,7 @@ password: "1234",
 __v: 0
 }
 ```
+<br/>
 
 ## Required states
 
@@ -64,62 +65,60 @@ States are required for responsive and dynamic applications. Most user interacti
 
 ### Login sign up states
 
-**errorMessage**
+**errorMessage**<br/>
 **loggedIn**
 
 Login states allow us to render error messages when attempting to login or sign up. Also allows us to give access to confidential information available for members only. Can be set using cookies.
 
 ### User states
 
-**currentUser**
-
----
-
----
-
-** c**
-\*\*
-**likedPosts**
-**userPosts**
-**userLikes**
-**userFriends**
-**userBlocks**
+**currentUser**<br/>
+**userFirstName**<br/>
+**userLastName**<br/>
+**userProfilePic**<br/>
+**userData**<br/>
+**likedPosts**<br/>
+**userPosts**<br/>
+**userLikes**<br/>
+**userFriends**<br/>
+**userBlocks**<br/>
 **userComments**
 
 User states will be stored in database and loaded into state when logged in or signed up. User states will allow us to render user information through multiple pages and allow logging out and logging to switch seamlessly between users. Can be set using cookies.
 
 ### Main Page States
 
-**allPosts**
-**selectedFilters**
-**sortPreference**
-**searchKeyWords**
+**allPosts**<br/>
+**selectedFilters**<br/>
+**sortPreference**<br/>
+**searchKeyWords**<br/>
 **searchResultPosts**
 
 Main page states allow us to search and filter posts. Posts can be sorted by different preferences (date, user, title, tags).
 
 ### Post states
 
-**currentPost**
-**postTitle**
-**postBody**
-**postLikesNum**
-**postDislikeNum**
-**postCommentsNum**
-**postTags**
+**currentPost**<br/>
+**postTitle**<br/>
+**postBody**<br/>
+**postLikesNum**<br/>
+**postDislikeNum**<br/>
+**postCommentsNum**<br/>
+**postTags**<br/>
 **postDate**
 
 Post states will dynamically render post information (such as number of likes, comments, tags, and created date). These states could be nested inside main page states for the main pages. A currentPost state will be used for individual post pages.
 
 ### Comment states
 
-**commentBody**
-**commentLikesNum**
-**commentDislikesNum**
-**commentDate**
+**commentBody**<br/>
+**commentLikesNum**<br/>
+**commentDislikesNum**<br/>
+**commentDate**<br/>
 **commentUser**
 
 Comment states renders comment data. This can be nested in post states as all comments will be in a post.
+<br/><br/>
 
 ## State structure
 
@@ -142,8 +141,9 @@ Comment states renders comment data. This can be nested in post states as all co
 - userFriends // **array of strings**
   - userFriendsID // **string**
 - userBlocks // **array of strings**
-
-  - userEnemiesID // **string**
+  - userEnemiesID// **string**
+- userComments // **array of strings**
+  - commentID // **string**
 
 - allPosts // **array of objects**
   - singlePost // **object**
