@@ -17,14 +17,6 @@ oauthController.githubOAuth = (req, res, next) => {
     )
       .then((response) => response.json())
       .then((response) => {
-        // Response will be in this format
-        /*
-        {
-          access_token: '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',
-          token_type: 'bearer',
-          scope: '',
-        };
-        */
         res.cookie('o_auth_token', response.access_token, { httpOnly: true, maxAge: 3600 * 1000, secure: true });
         return next();
       });
