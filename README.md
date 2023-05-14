@@ -1,19 +1,31 @@
 # CallStack
 Creating a community for developers
 
-## Creating a new user
-Send a fetch post request to the server with the body containing the desired information. No information returned.
+## Connecting to the Server
+Connect to the server to create, read, update, and delete user, post and comment data
+
+### Creating a new user
+Send a fetch post request to the server with the body containing the required information. No information returned.
 
 ```
-fetch('api/', {
+fetch('/login', {
   method: 'POST',
   headers: {
     'Content-Type': 'Application/JSON',
   },
   body: JSON.stringify({
-    name: '<name>',
-    userId: '<username>',
+    firstName: '<first name>',
+    lastName: '<last name>',
+    username: '<username>',
     password: '<password>',
   }),
 });
+```
+
+### Find user based on username
+Send a fetch get request to the server with the parameters containing the required information. Returned data will contain an array of the person with that username .
+
+```
+fetch('/login/<username>')
+.then(res => res.json())
 ```

@@ -4,9 +4,9 @@ const userController = {};
 
 // Creating a new user
 userController.createUser = (req, res, next) => {
-  const { name, username, password } = req.body;
+  const { firstName, lastName, username, password } = req.body;
 
-  User.create({ name, username, password })
+  User.create({ firstName, lastName, username, password })
     .then((data) => {
       res.locals.dataCreated = data;
       return next();
@@ -22,9 +22,9 @@ userController.createUser = (req, res, next) => {
 
 // Finding a user
 userController.findUser = (req, res, next) => {
-  const { name } = req.params;
+  const { username } = req.params;
 
-  User.find({ name: name })
+  User.find({ username: username })
     .then((data) => {
       res.locals.dataFound = data;
       return next();
