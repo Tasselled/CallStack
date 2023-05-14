@@ -23,7 +23,7 @@ fetch('/login', {
 ```
 
 ### Find user based on username
-Send a fetch get request to the server with the parameters containing the required information. Returned data will contain an array of all people with that name .
+Send a fetch get request to the server with the parameters containing the required information. Returned data will contain an array of the person with that username .
 
 ```
 fetch('/login/<username>')
