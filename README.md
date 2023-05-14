@@ -57,3 +57,120 @@ password: "1234",
 __v: 0
 }
 ```
+
+## Required states
+
+States are required for responsive and dynamic applications. Most user interactions will require a state, as well as anything dynamically rendered should be dependant on states. All states that are required to persist through reload should be stored in database.
+
+### Login sign up states
+
+**errorMessage**
+**loggedIn**
+
+Login states allow us to render error messages when attempting to login or sign up. Also allows us to give access to confidential information available for members only. Can be set using cookies.
+
+### User states
+
+**currentUser**
+
+---
+
+---
+
+** c**
+\*\*
+**likedPosts**
+**userPosts**
+**userLikes**
+**userFriends**
+**userBlocks**
+**userComments**
+
+User states will be stored in database and loaded into state when logged in or signed up. User states will allow us to render user information through multiple pages and allow logging out and logging to switch seamlessly between users. Can be set using cookies.
+
+### Main Page States
+
+**allPosts**
+**selectedFilters**
+**sortPreference**
+**searchKeyWords**
+**searchResultPosts**
+
+Main page states allow us to search and filter posts. Posts can be sorted by different preferences (date, user, title, tags).
+
+### Post states
+
+**currentPost**
+**postTitle**
+**postBody**
+**postLikesNum**
+**postDislikeNum**
+**postCommentsNum**
+**postTags**
+**postDate**
+
+Post states will dynamically render post information (such as number of likes, comments, tags, and created date). These states could be nested inside main page states for the main pages. A currentPost state will be used for individual post pages.
+
+### Comment states
+
+**commentBody**
+**commentLikesNum**
+**commentDislikesNum**
+**commentDate**
+**commentUser**
+
+Comment states renders comment data. This can be nested in post states as all comments will be in a post.
+
+## State structure
+
+- errorMessage // **html p element**
+- loggedIn // **boolean**
+
+- currentUser // **string**
+- userFirstName // **string**
+- userLastName // **string**
+- userProfilePic // **string**
+- userData // **array of strings**
+  - userEmail // **string**
+  - userPreferences // **string**
+- likedPosts // **array of strings**
+  - postID // **string**
+- userPosts // **array of strings**
+  - postID // **string**
+- userLikes // **array of strings**
+  - postID // **string**
+- userFriends // **array of strings**
+  - userFriendsID // **string**
+- userBlocks // **array of strings**
+
+  - userEnemiesID // **string**
+
+- allPosts // **array of objects**
+  - singlePost // **object**
+    - postID // **string**
+    - postTitle // **string**
+    - postLikesNum // **number**
+    - postDislikeNum // **number**
+    - postCommentsNum // **number**
+    - postTags // **string**
+    - postDate // **string**
+- selectedFilters // **array of strings**
+- sortPreference // **array of strings**
+- searchKeyWords // **array of strings**
+- searchResultPosts // **array of strings**
+
+- currentPost // **object**
+  - postTitle // **string**
+  - postBody // **string**
+  - postLikesNum // **number**
+  - postDislikeNum // **number**
+  - postCommentsNum // **number**
+  - postTags // **string**
+  - postDate // **string**
+  - allComments // **array of objects**
+    - singleComment // **object**
+      - commentBody // **string**
+      - commentLikesNum // **number**
+      - commentDislikesNum // **number**
+      - commentDate // **string**
+      - commentUser // **string**
