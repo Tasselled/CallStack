@@ -18,11 +18,13 @@ function App() {
     
         return (
             <Routes>
-                <Route path={`/${currentUser}/${currentPost}`} element={<PostPage />}/>
+                {/* <Route path={`/${currentUser}/${currentPost}`} element={<PostPage />}/>
                 <Route path={`/${currentUser}`} element={<MainPage />}/>                
                 <Route path='/signuppage' element={<SignUpPage />}/>
                 <Route path='/loginpage' element={<LoginPage />}/>
-                <Route path='/' element={<WelcomePage />}/>
+                <Route path='/' element={<WelcomePage />}/> */}
+                <Route path='/loginpage' element={<LoginPage />}/>
+                <Route path={`/${currentUser}`} element={<MainPage />}/> 
             </Routes>
         );
  }

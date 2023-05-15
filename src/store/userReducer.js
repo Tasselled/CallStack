@@ -33,7 +33,7 @@ export const userReducer = createSlice({
       state.searchResultPosts = action.payload === 'delete' ? [] : [...state.searchResultPosts, action.payload];
     },
     setAllPosts: (state, action) => {
-      state.allPosts = [...state.allPosts, ...action.payload]
+      state.allPosts = [...state.allPosts, action.payload]
     }
   },
 });
