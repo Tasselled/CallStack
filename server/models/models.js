@@ -43,7 +43,7 @@ const User = mongoose.model('user', userSchema);
 // Schema for 'posts' collection
 const postSchema = new Schema({
   date: { type: Date, default: Date.now },
-  userId: String,
+  userId: {type: String},
   postTitle: { type: String, required: true },
   postBody: { type: String, required: true },
   postTag: { type: String, default: 'uncategorized' },
@@ -55,7 +55,7 @@ const Post = mongoose.model('post', postSchema);
 // Schema for 'comments' collection
 const commentSchema = new Schema({
   date: { type: Date, default: Date.now },
-  postId: String,
+  postId: { type: String },
   commentBody: { type: String, required: true },
   numLikes: { type: Number, default: 0 },
 });
@@ -72,8 +72,6 @@ const Comment = mongoose.model('comment', commentSchema);
 // });
 
 // const Subcomment = mongoose.model('subcomment', subcommentSchema);
-
-
 
 
 module.exports = { User, Post, Comment };
