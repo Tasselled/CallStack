@@ -33,6 +33,7 @@
     height: 500px;
     width: 75%;
     justify-content: center;
+    border-radius: 4px;
   }
 
   .commentBox {
@@ -52,7 +53,7 @@
     width: 20vh;
     margin-left: 2em;
     background-color: purple;
-    border-radius: 4px 1px;
+    border-radius: 6px 1px;
     color: white;
   }
 
@@ -62,12 +63,19 @@
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    border-radius: 6px;
+    background-color: purple;
   }
 
   .currentClickedPost {
     border: 2px solid white;
+    background-color: purple;
     margin-top: 3em;
     color: white;
+    border-radius: 6px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .commentsBoxBorder {
@@ -79,4 +87,5 @@
     text-align: center;
     align-content: center;
     width: 50%;
+    border-radius: 6px;
   }
