@@ -35,7 +35,7 @@ function SubContainer () {
     })
   }
   return (
-    <div>
+    <div className="allPostsDiv">
       {allPosts}
     </div>  
   )

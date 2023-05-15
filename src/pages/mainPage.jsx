@@ -10,7 +10,8 @@ function MainPage() {
   const currentUser = useSelector((state) => state.userReducer.currentUser);
   if (currentUser) {
     return (
-      <div>
+      <div className='mainPageDiv'>
+        <img className="backgroundImg" src="https://wallpapercave.com/wp/wp4865484.jpg" />
         <MainPageNavBar />
         <PostBar />
         <SubContainer />
