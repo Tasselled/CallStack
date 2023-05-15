@@ -1,7 +1,12 @@
 import React from 'react';
+import '../stylesheets/leetcodeStyles.scss';
+import { useDispatch, useSelector } from 'react-redux';
+import { setErrorMessage } from '../store/userReducer';
 
 export default function LeetCode() {
   const randomNum = Math.floor(Math.random() * 1);
+  const dispatch = useDispatch();
+  const errorMessage = useSelector((state) => state.userReducer.errorMessage);
 
   const questions = [
     // <div>
@@ -16,22 +21,23 @@ export default function LeetCode() {
     //   <p>Return 0 if no profit is possible OR if input is invalid.</p>
     // </div>,
 
-    <div>
-      <p>write a function that takes a string of text and returns true if</p>
-      <p>the parentheses are balanced and false otherwise.</p>
-      <p>Example:</p>
+    <div className='leetcodeProblem'>
+      <h1>Write a function that takes a string of text and returns true if</h1>
+      <h1>the parentheses are balanced and false otherwise.</h1>
+      <h4>Example:</h4>
       <p> balancedParens{"('(')"}; // false</p>
       <p> balancedParens('()'); // true</p>
       <p> balancedParens(')('); // false</p>
       <p> balancedParens('(())'); // true</p>
-      <p>Step 2:</p>
+      <h3>Step 2:</h3>
       <p> make your solution work for all types of brackets</p>
-      <p>Example:</p>
+      <h4>Example:</h4>
       <p> balancedParens{"('[](){}')"}; // true</p>
       <p> balancedParens{"('[({})]')"}; // true</p>
       <p> balancedParens{"('[(]{)}')"}; // false</p>
-      <p>Step 3:</p>
+      <h3>Step 3:</h3>
       <p>ignore non-bracket characters</p>
+      <h4>Example:</h4>
       <p>balancedParens{"(' const wow = { yo: thisIsAwesome() }'); // true"}</p>
       <p>balancedParens{"(' const newton = () => { telescopes.areSicc(); '); // false"}</p>
     </div>,
@@ -43,16 +49,24 @@ export default function LeetCode() {
     const test2 = inputString.slice(0, index) + "'[(]{)}'" + inputString.slice(index + 4);
     const test3 = inputString.slice(0, index) + "')('" + inputString.slice(index + 4);
     const test4 = inputString.slice(0, index) + "'('" + inputString.slice(index + 4);
-   
-    if (eval(test1) && !eval(test2) && !eval(test3) && !eval(test4)) {
-      document.querySelector('.answeredLeetCode').style.display = 'block'
-      document.querySelector('.leetCodeQuestion').style.display = 'none'
+    const test5 = inputString.slice(0, index) + "'const wow = { yo: thisIsAwesome() }'" + inputString.slice(index + 4);
+    try {
+      if (eval(test1) && !eval(test2) && !eval(test3) && !eval(test4) && eval(test5)) {
+        document.querySelector('.answeredLeetCode').style.display = 'block';
+        document.querySelector('.leetCodeQuestion').style.display = 'none';
+        dispatch(setErrorMessage([]));
+      } else {
+        dispatch(setErrorMessage(<h1 style={{ color: 'red' }}>You're wrong</h1>));
+      }
+    } catch {
+      dispatch(setErrorMessage(<h1 style={{ color: 'red' }}>You're wrong</h1>));
     }
   }
 
   return (
     <div className='leetCodeQuestion'>
       {questions[randomNum]}
+      {errorMessage}
       <textarea
         id='leetCodeAnswer'
         cols='120'
@@ -61,6 +75,7 @@ export default function LeetCode() {
           'Must execute function at the end.\nInput parameter when executing must be "args".\n "args" must not be used anywhere else.\nEx:\nfunction myFunction(input) {console.log(input)}\nmyfunction(args)'
         }
       />
+      <br />
       <button
         onClick={() => {
           evaluate(document.querySelector('#leetCodeAnswer').value);
