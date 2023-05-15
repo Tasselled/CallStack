@@ -14,7 +14,7 @@ function SignUpPage () {
 
   function signUpUser (firstName, lastName, username, password) {
     if (!firstName || !lastName || !username || !password) {
-      dispatch(setErrorMessage(<p>You have incompleted fields, please complete form</p>))
+      dispatch(setErrorMessage(<p>You have some incomplete fields, please complete form</p>))
     } else {
       fetch('/login', {
         method: 'POST',

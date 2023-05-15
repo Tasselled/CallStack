@@ -14,18 +14,27 @@ function loginPage(){
   const navigate = useNavigate() 
 
   function loginUser(username, password) {
-    fetch(`/login/${username}/${password}`).then((res) => {
-      res.json()
-    }).then((res) => {
-      if(res.body){ 
+    fetch('/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+      body: JSON.stringify({
+        username: username,
+        password: password,
+      }),
+    })
+    .then((res) => {
+      if (res.body) {
         dispatch(setErrorMessage([]))
         dispatch(setCurrentUser(username));
         navigate(`/${username}`)
+      } else {
+        dispatch(setErrorMessage([<p></p>]))
       }
-      else {
-        dispatch(setErrorMessage([<p>incorrect username/password</p>]))
-    }
+  
     })
+    
   }
 
   function mockLogin(username, password) {
@@ -40,15 +49,13 @@ function loginPage(){
 
     return (
         <div>
-          <div>
-            <img src="" alt="logo" />
-          </div>
+         <i class="fa-solid fa-otter otterLogo"></i>
           
           <div>
             
             <div>
-              <label htmlFor="userId">ID</label>
-              <input type="text" id="userId"/>
+              <label htmlFor="userId">Username</label>
+              <input type="text" id="username"/>
             </div>
       
             <div>
@@ -59,7 +66,7 @@ function loginPage(){
           {errorMessage}
           <div>
               <button onClick={() => {
-                mockLogin(document.querySelector('#userId').value, document.querySelector('#password').value)
+                mockLogin(document.querySelector('#username').value, document.querySelector('#password').value)
               }}>Login</button>
           </div>
       
