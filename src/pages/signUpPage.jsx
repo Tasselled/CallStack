@@ -33,6 +33,7 @@ function SignUpPage() {
     }
   }
 
+
   const mockData = [
     {
       date: 5 / 23 / 2023,
@@ -51,6 +52,7 @@ function SignUpPage() {
       numLikes: 1,
     },
   ];
+
 
   function getPosts() {
     fetch('/')
@@ -88,7 +90,11 @@ function SignUpPage() {
       });
   }
 
+
   function mockGet(mockData) {
+
+  function mockGet(mockData) {
+
     for (let i = 0; i < mockData.length; i++) {
       dispatch(
         setAllPosts(
@@ -97,7 +103,25 @@ function SignUpPage() {
               <img src='' alt='user-photo' />
             </div>
 
-            <button className='mainPost'>
+
+            <button
+              className='mainPost'
+              onClick={() => {
+                dispatch(
+                  setCurrentPost(
+                    <div>
+                      <h1>{mockData[i].postTitle}</h1>
+                      <p>{mockData[i].postBody}</p>
+                      <div>{mockData[i].postTag}</div>
+                      <div>{mockData[i].numLikes}</div>
+                      <div>{mockData[i].numComments}</div>
+                    </div>
+                  )
+                );
+                navigate(
+                  `../post`
+                );
+              }}>
               <h1>{mockData[i].postTitle}</h1>
               <p>{mockData[i].postBody}</p>
               <div>{mockData[i].postTag}</div>
@@ -115,6 +139,7 @@ function SignUpPage() {
         )
       );
     }
+
   }
 
   return (
