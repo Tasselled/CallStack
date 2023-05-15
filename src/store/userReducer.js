@@ -37,15 +37,12 @@ export const userReducer = createSlice({
       state.allPosts = [...state.allPosts, action.payload]
     },
     setCurrentComments: (state, action) => {
-      state.currentComments = action.payload;
-    },
-    setNewComment: (state, action) => {
-      state.currentComments = [...state.currentComments, action.payload]
+      state.currentComments = [...state.currentComments, action.payload];
     },
   },
 });
 
-export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts, setCurrentComments, setNewComment } = userReducer.actions;
+export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts, setCurrentComments } = userReducer.actions;
 
 
 export default userReducer.reducer;

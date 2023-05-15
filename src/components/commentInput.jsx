@@ -1,6 +1,6 @@
 import React from 'react';
 import '../stylesheets/postPageStyles.scss'
-import { setNewComment, setErrorMessage} from '../store/userReducer';
+import { setCurrentComments, setErrorMessage} from '../store/userReducer';
 import { useDispatch, useSelector } from 'react-redux'; 
 
 function CommentInput() {
@@ -20,7 +20,7 @@ function CommentInput() {
           .then((res) => {
             if (res.body) {
               dispatch(setErrorMessage([]))
-              dispatch(setNewComment(comment));
+              dispatch(setCurrentComments(<p className="currentCommentBody">{comment}</p>));
             } else {
               dispatch(setErrorMessage([<p></p>]))
             }

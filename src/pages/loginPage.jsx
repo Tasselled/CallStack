@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'; // react redux hooks
 
 // redux action creators which we send in our dispatch.they take in the payload
 // PS: we gave our types and action creators the same name.
-import { setErrorMessage, setCurrentUser, setAllPosts, setCurrentPost } from '../store/userReducer';
+import { setErrorMessage, setCurrentUser, setAllPosts, setCurrentPost, setCurrentComments } from '../store/userReducer';
 
 function loginPage() {
   const dispatch = useDispatch(); // the useDispatch is a react redux hook that lets us use our dispatch function in redux
@@ -62,6 +62,19 @@ function loginPage() {
     },
   ];
 
+  const mockComments = [
+    {
+      userId: "KevinisDaBest1337",
+      commentBody: "Such an informative post!",
+      numLikes: 46,
+    },
+    {
+      userId: "PraiseForPraise",
+      commentBody: "Redux is the best, people just don't get it",
+      numLikes: 2,
+    },
+  ]
+
   function getPosts() {
     fetch('/')
       .then((response) => response.json())
@@ -112,7 +125,7 @@ function loginPage() {
               onClick={() => {
                 dispatch(
                   setCurrentPost(
-                    <div>
+                    <div className="currentClickedPost">
                       <h1>{mockData[i].postTitle}</h1>
                       <p>{mockData[i].postBody}</p>
                       <div>{mockData[i].postTag}</div>
@@ -152,6 +165,20 @@ function loginPage() {
     }
   }
 
+  function mockGetComments(){
+    for (let i = 0; i < mockComments.length; i++){
+      dispatch (
+        setCurrentComments(
+          <div className="currentCommentBody">
+            <p>{mockComments[i].userId}</p>
+            <p>{mockComments[i].commentBody}</p>
+            <p>{mockComments[i].numLikes}</p>
+          </div>
+        )
+      )   
+    }
+  }
+
   return (
     <div>
       <i class='fa-solid fa-otter otterLogo'></i>
@@ -173,6 +200,7 @@ function loginPage() {
           onClick={() => {
             mockLogin(document.querySelector('#username').value, document.querySelector('#password').value);
             mockGet(mockData, document.querySelector('#username').value);
+            mockGetComments();
           }}>
           Login
         </button>
