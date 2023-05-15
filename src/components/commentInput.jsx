@@ -31,7 +31,7 @@ function CommentInput() {
     return (
         <div class="commentBox">
             <input class="input" placeholder="Write your comment here"></input>    
-            <button class="commentButton" type="submit" onClick={(() => {postComment(document.querySelector('.input').value)} )}>Comment</button> 
+            <button class="commentButton" type="submit" onClick={(() => {postComment(document.querySelector('.input').value); document.querySelector('.input').value = ''} )}>Comment</button> 
         </div>
        )
 }

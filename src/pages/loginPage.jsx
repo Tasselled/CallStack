@@ -66,12 +66,12 @@ function loginPage() {
     {
       userId: "KevinisDaBest1337",
       commentBody: "Such an informative post!",
-      numLikes: 46,
+      // numLikes: 46,
     },
     {
       userId: "PraiseForPraise",
       commentBody: "Redux is the best, people just don't get it",
-      numLikes: 2,
+      // numLikes: 2,
     },
   ]
 
@@ -172,7 +172,7 @@ function loginPage() {
           <div className="currentCommentBody">
             <p>{mockComments[i].userId}</p>
             <p>{mockComments[i].commentBody}</p>
-            <p>{mockComments[i].numLikes}</p>
+            {/* <p>{mockComments[i].numLikes}</p> */}
           </div>
         )
       )   
