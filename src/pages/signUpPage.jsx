@@ -78,7 +78,7 @@ function SignUpPage () {
 
     <div>
       <p>Already a member?</p>
-      <Link to='/'><button>Login</button></Link>
+      <Link to='/loginpage'><button>Login</button></Link>
     </div>
 
   </div>

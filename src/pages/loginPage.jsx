@@ -65,7 +65,7 @@ function loginPage(){
       
           <div>
             <p>Not A Member?</p>
-            <Link to='/signup'><button>Sign up</button></Link>            
+            <Link to='/signuppage'><button>Sign up</button></Link>            
           </div>
           
         </div>
