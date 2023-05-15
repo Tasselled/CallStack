@@ -107,7 +107,7 @@ function PostBar () {
     })
   }
   return (
-    <div>
+    <div className="postBar">
       <div>
         <img src="" alt="user-profile-photo" />
       </div>

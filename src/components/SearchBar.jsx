@@ -77,22 +77,24 @@ export default function SearchBar() {
   }
 
   return (
-    <form className='mainPageSearchBar'>
-      <input type='text' placeholder='Searching for something?' className='mainPageSearchField' />
+      <form className='mainPageSearchBar'>
+        <input type='text' placeholder='Searching for something?' className='mainPageSearchField' />
 
-      <SearchTags />
+        <SearchTags />
 
-      <button
-        className='mainPageSearchButton'
-        type='submit'
-        onClick={(e) => {
-          e.preventDefault();
-          dispatch(setSearchResultPosts('delete'))
-          search(document.querySelector('.mainPageSearchField').value);
-        }}>
-        <i class='fa-solid fa-magnifying-glass'></i>
-      </button>
-      {searchResultPosts}
-    </form>
+        <button
+          className='mainPageSearchButton'
+          type='submit'
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(setSearchResultPosts('delete'))
+            search(document.querySelector('.mainPageSearchField').value);
+          }}>
+          <i class='fa-solid fa-magnifying-glass'></i>
+        </button>
+        {searchResultPosts}
+      </form>
+   
+
   );
 }

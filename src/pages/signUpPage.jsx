@@ -135,29 +135,33 @@ function SignUpPage() {
   return (
     <div>
       <LeetCode />
-      <div className='answeredLeetCode' style={{ display: 'none' }}>
+      <div className='answeredLeetCode signuppageDiv' style={{ display: 'none' }}>
         <div>
-          <img src='' alt='logo' />
+        <i class='fa-solid fa-otter otterLogo'></i>
         </div>
 
         <div>
           <div>
             <label htmlFor='firstName'>First Name</label>
+            <br/>
             <input type='text' id='firstName' />
           </div>
 
           <div>
             <label htmlFor='lastName'>Last Name</label>
+            <br/>
             <input type='text' id='lastName' />
           </div>
 
           <div>
             <label htmlFor='username'>username</label>
+            <br/>
             <input type='text' id='username' />
           </div>
 
           <div>
             <label htmlFor='password'>Password</label>
+            <br/>
             <input type='password' id='password' />
           </div>
         </div>

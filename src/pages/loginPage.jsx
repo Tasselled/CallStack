@@ -233,17 +233,19 @@ function loginPage() {
   }
 
   return (
-    <div>
+    <div className='loginPageDiv'>
       <i class='fa-solid fa-otter otterLogo'></i>
 
       <div>
         <div>
           <label htmlFor='userId'>Username</label>
+          <br/>
           <input type='text' id='username' />
         </div>
 
         <div>
           <label htmlFor='password'>Password</label>
+          <br/>
           <input type='password' id='password' />
         </div>
       </div>
