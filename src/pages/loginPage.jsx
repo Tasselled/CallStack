@@ -44,6 +44,7 @@ function loginPage(){
         dispatch(setErrorMessage([]))
         dispatch(setCurrentUser(username));
         navigate(`/${username}`)
+        
       }
       else dispatch(setErrorMessage([<p>incorrect username/password</p>]))
   }
@@ -51,16 +52,16 @@ function loginPage(){
   const mockData = [{
     date: 5/23/2023,
     userId: 'drake',
-    postTitle: 'I wish i was jamaican',
+    postTitle: 'This is our first title',
     postBody: `Now I got a house in LA Now I got a bigger pool than Ye And look man, Ye's pool is nice Mine's just big is what I'm saying`,
     postTag: 'default',
-    numLikes: 1,
+    numLikes: 5000,
   },
   {
   date: 5/23/2023,
   userId: 'wayne',
-  postTitle: 'I wish i was french',
-  postBody: `just testing this`,
+  postTitle: 'This is our second title',
+  postBody: `adulthood is emailing "sorry for the delayed response!" back and forth until one of you dies`,
   postTag: 'default',
   numLikes: 1,
 }]
@@ -74,13 +75,27 @@ function loginPage(){
       
       for (let i = 0; i < posts.length; i++) {
           dispatch(setAllPosts(
-            [<div>
-              <h1>{posts[i].postTitle}</h1>
-              <p>{posts[i].postBody}</p>
-              <div>{posts[i].postTag}</div>
-              <div>{posts[i].numLikes}</div>
-              <div>{posts[i].numComments}</div>
-            </div>]
+        <div>
+          <div>
+            <img src="" alt="user-photo" />
+          </div>
+          
+          <button className='mainPost'>
+            <h1>{posts[i].postTitle}</h1>
+            <p>{posts[i].postBody}</p>
+            <div>{posts[i].postTag}</div>
+            <div>{posts[i].numLikes}</div>
+            <div>{posts[i].numComments}</div>
+          </button>
+       
+
+          <div>
+            <button>Tags</button>
+            <button>Like</button>
+            <button>Comment</button>
+            <button>Date</button>
+          </div>
+        </div>
           ))
       }
       
@@ -94,12 +109,27 @@ function loginPage(){
   function mockGet (mockData) {
     for (let i = 0; i < mockData.length; i++) {
         dispatch(setAllPosts(
-          [<div>
+        <div>
+          <div>
+            <img src="" alt="user-photo" />
+          </div>
+          
+          <button className='mainPost'>
             <h1>{mockData[i].postTitle}</h1>
             <p>{mockData[i].postBody}</p>
             <div>{mockData[i].postTag}</div>
             <div>{mockData[i].numLikes}</div>
-          </div> ]
+            <div>{mockData[i].numComments}</div>
+          </button>
+       
+
+          <div>
+            <button>Tags</button>
+            <button>Like</button>
+            <button>Comment</button>
+            <button>Date</button>
+          </div>
+        </div>
         ))
       
      

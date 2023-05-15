@@ -62,13 +62,27 @@ function SignUpPage () {
       
       for (let i = 0; i < posts.length; i++) {
           dispatch(setAllPosts(
-            [<div>
+          <div>
+            <div>
+              <img src="" alt="user-photo" />
+            </div>
+            
+            <button className="mainPost">
               <h1>{posts[i].postTitle}</h1>
               <p>{posts[i].postBody}</p>
               <div>{posts[i].postTag}</div>
               <div>{posts[i].numLikes}</div>
               <div>{posts[i].numComments}</div>
-            </div>]
+            </button>
+       
+
+            <div>
+              <button>Tags</button>
+              <button>Like</button>
+              <button>Comment</button>
+              <button>Date</button>
+            </div>
+          </div>
           ))
       }
       
@@ -82,12 +96,27 @@ function SignUpPage () {
   function mockGet (mockData) {
     for (let i = 0; i < mockData.length; i++) {
         dispatch(setAllPosts(
-          [<div>
+        <div>
+          <div>
+            <img src="" alt="user-photo" />
+          </div>
+          
+          <button className='mainPost'>
             <h1>{mockData[i].postTitle}</h1>
             <p>{mockData[i].postBody}</p>
             <div>{mockData[i].postTag}</div>
             <div>{mockData[i].numLikes}</div>
-          </div> ]
+            <div>{mockData[i].numComments}</div>
+          </button>
+       
+
+          <div>
+            <button>Tags</button>
+            <button>Like</button>
+            <button>Comment</button>
+            <button>Date</button>
+          </div>
+        </div>
         ))
       
      

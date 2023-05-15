@@ -23,6 +23,7 @@ function App() {
                 <Route path='/signuppage' element={<SignUpPage />}/>
                 <Route path='/loginpage' element={<LoginPage />}/>
                 <Route path='/' element={<WelcomePage />}/>
+                
             </Routes>
         );
  }

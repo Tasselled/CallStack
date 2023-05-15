@@ -9,7 +9,6 @@ import PostBar from "../components/postBar";
 import SubContainer from "../containers/subContainer";
 
 function MainPage () {
-
   return (
     <div>
        <MainPageNavBar />
