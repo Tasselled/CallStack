@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import postBodyContainer from '../containers/postBodyContainer';
-import postNavContainer from '../containers/postNavContainer';
+import PostBodyContainer from '../containers/postBodyContainer';
+import PostNavContainer from '../containers/postNavContainer';
 
 function postPage(){
     return (
-        <div>
-            <postNavContainer />
-            <postBodyContainer />
+        <div className="post">
+            <PostNavContainer />
+            <PostBodyContainer />
         </div>
-    )
+    );
 }
 
 

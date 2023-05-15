@@ -1,0 +1,55 @@
+.post {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/007/120/314/original/galaxy-background-with-falling-star-space-galaxy-illustration-free-vector.jpg');
+    min-width: 100%;
+    min-height: 100%;
+    height: 800px;
+}
+
+.otterLogo {
+    position: relative;
+    font-size: 35px;
+    top: 5px;
+    transition: 0.25s;
+    color: white;
+  }
+  
+  .otterLogo:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
+  .postNav {
+    height: 50px;
+    min-width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .postBody {
+    border: 2px solid black;
+    height: 500px;
+    width: 75%;
+    justify-content: center;
+  }
+
+  .commentBox {
+    justify-content: center;
+    text-align: center;
+    margin-top: 60px;
+  }
+
+  .input {
+    height: 100px;
+    width: 80vh;
+    text-align: center;
+  }
+
+  .commentButton {
+    height: 50px;
+    width: 20vh;
+    margin-left: 2em;
+    background-color: purple;
+    border-radius: 4px 1px;
+    color: white;
+  }

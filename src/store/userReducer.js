@@ -8,7 +8,8 @@ export const userReducer = createSlice({
     errorMessage: [],
     tags: [],
     searchResultPosts: [],
-    allPosts: []
+    allPosts: [],
+    currentComments: [],
   },
 
   reducers: {
@@ -32,13 +33,19 @@ export const userReducer = createSlice({
     setSearchResultPosts: (state, action) => {
       state.searchResultPosts = action.payload === 'delete' ? [] : [...state.searchResultPosts, action.payload];
     },
-    setAllPosts: (state, action) => {
+     setAllPosts: (state, action) => {
       state.allPosts = [...state.allPosts, action.payload]
-    }
+    },
+    setCurrentComments: (state, action) => {
+      state.currentComments = action.payload;
+    },
+    setNewComment: (state, action) => {
+      state.currentComments = [...state.currentComments, action.payload]
+    },
   },
 });
 
-export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts } = userReducer.actions;
+export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts, setCurrentComments, setNewComment } = userReducer.actions;
 
 
 export default userReducer.reducer;
