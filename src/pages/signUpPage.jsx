@@ -1,9 +1,13 @@
-import React from 'react';
-import GithubOAuth from '../components/githubOAuth';
-import { Link, useNavigate } from 'react-router-dom';
-import { setCurrentUser, setErrorMessage, setAllPosts } from '../store/userReducer';
-import { useSelector, useDispatch } from 'react-redux';
-import LeetCode from '../components/leetcodeQuiz';
+import React from "react";
+import GithubOAuth from "../components/githubOAuth";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  setCurrentUser,
+  setErrorMessage,
+  setAllPosts,
+} from "../store/userReducer";
+import { useSelector, useDispatch } from "react-redux";
+import LeetCode from "../components/leetcodeQuiz";
 
 function SignUpPage() {
   const dispatch = useDispatch();
@@ -13,12 +17,16 @@ function SignUpPage() {
 
   function signUpUser(firstName, lastName, username, password) {
     if (!firstName || !lastName || !username || !password) {
-      dispatch(setErrorMessage(<p>You have some incomplete fields, please complete form</p>));
+      dispatch(
+        setErrorMessage(
+          <p>You have some incomplete fields, please complete form</p>
+        )
+      );
     } else {
-      fetch('/login/signupRequest', {
-        method: 'POST',
+      fetch("/login/signupRequest", {
+        method: "POST",
         headers: {
-          'Content-Type': 'Application/JSON',
+          "Content-Type": "Application/JSON",
         },
         body: JSON.stringify({
           firstName: firstName,
@@ -36,35 +44,32 @@ function SignUpPage() {
   const mockData = [
     {
       date: 5 / 23 / 2023,
-      userId: 'drake',
-      postTitle: 'Can I buy a porsche with a total comp of $300k?',
+      userId: "drake",
+      postTitle: "Can I buy a porsche with a total comp of $300k?",
       postBody: `Now I got a house in LA Now I got a bigger pool than Ye And look man, Ye's pool is nice Mine's just big is what I'm saying`,
-      postTag: 'default',
+      postTag: "default",
       numLikes: 1,
     },
     {
       date: 5 / 23 / 2023,
-      userId: 'wayne',
-      postTitle: 'I just rejected a $500k total comp from Amazon because I want to work remote',
+      userId: "wayne",
+      postTitle:
+        "I just rejected a $500k total comp from Amazon because I want to work remote",
       postBody: `just testing this`,
-      postTag: 'default',
+      postTag: "default",
       numLikes: 1,
     },
   ];
 
   function getPosts() {
-    fetch('/')
+    fetch("/")
       .then((response) => response.json())
       .then((posts) => {
         for (let i = 0; i < posts.length; i++) {
           dispatch(
             setAllPosts(
               <div>
-                <div>
-                  <img src='' alt='user-photo' />
-                </div>
-
-                <button className='mainPost'>
+                <button className="mainPost">
                   <h1>{posts[i].postTitle}</h1>
                   <p>{posts[i].postBody}</p>
                   <div>{posts[i].postTag}</div>
@@ -84,7 +89,7 @@ function SignUpPage() {
         }
       })
       .catch((err) => {
-        console.log('There was an error loading posts', err);
+        console.log("There was an error loading posts", err);
       });
   }
 
@@ -94,11 +99,11 @@ function SignUpPage() {
         setAllPosts(
           <div>
             <div>
-              <img src='' alt='user-photo' />
+              <img src="" alt="user-photo" />
             </div>
 
             <button
-              className='mainPost'
+              className="mainPost"
               onClick={() => {
                 dispatch(
                   setCurrentPost(
@@ -112,7 +117,8 @@ function SignUpPage() {
                   )
                 );
                 navigate(`../post`);
-              }}>
+              }}
+            >
               <h1>{mockData[i].postTitle}</h1>
               <p>{mockData[i].postBody}</p>
               <div>{mockData[i].postTag}</div>
@@ -135,34 +141,37 @@ function SignUpPage() {
   return (
     <div>
       <LeetCode />
-      <div className='answeredLeetCode signuppageDiv' style={{ display: 'none' }}>
+      <div
+        className="answeredLeetCode signuppageDiv"
+        style={{ display: "none" }}
+      >
         <div>
-        <i class='fa-solid fa-otter otterLogo'></i>
+          <i class="fa-solid fa-otter otterLogo"></i>
         </div>
 
         <div>
           <div>
-            <label htmlFor='firstName'>First Name</label>
-            <br/>
-            <input type='text' id='firstName' />
+            <label htmlFor="firstName">First Name</label>
+            <br />
+            <input type="text" id="firstName" />
           </div>
 
           <div>
-            <label htmlFor='lastName'>Last Name</label>
-            <br/>
-            <input type='text' id='lastName' />
+            <label htmlFor="lastName">Last Name</label>
+            <br />
+            <input type="text" id="lastName" />
           </div>
 
           <div>
-            <label htmlFor='username'>username</label>
-            <br/>
-            <input type='text' id='username' />
+            <label htmlFor="username">username</label>
+            <br />
+            <input type="text" id="username" />
           </div>
 
           <div>
-            <label htmlFor='password'>Password</label>
-            <br/>
-            <input type='password' id='password' />
+            <label htmlFor="password">Password</label>
+            <br />
+            <input type="password" id="password" />
           </div>
         </div>
         {errorMessage}
@@ -170,14 +179,15 @@ function SignUpPage() {
           <button
             onClick={() => {
               signUpUser(
-                document.querySelector('#firstName').value,
-                document.querySelector('#lastName').value,
-                document.querySelector('#username').value,
-                document.querySelector('#password').value
+                document.querySelector("#firstName").value,
+                document.querySelector("#lastName").value,
+                document.querySelector("#username").value,
+                document.querySelector("#password").value
               );
               mockGet(mockData);
             }}
-            m>
+            m
+          >
             Sign Up
           </button>
         </div>
@@ -186,7 +196,7 @@ function SignUpPage() {
 
         <div>
           <p>Already a member?</p>
-          <Link to='/loginpage'>
+          <Link to="/loginpage">
             <button>Login</button>
           </Link>
         </div>

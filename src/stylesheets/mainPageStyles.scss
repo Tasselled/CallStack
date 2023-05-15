@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
-$publicFontFamily: 'Share Tech', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech&display=swap");
+$publicFontFamily: "Share Tech", sans-serif;
 
 body {
   margin: 0;
@@ -15,7 +15,6 @@ body {
   z-index: 0;
   width: 100%;
 }
-
 
 .mainPageNavBar {
   display: flex;
@@ -34,13 +33,11 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-
 }
 
-.mainPageSearchBar  {
+.mainPageSearchBar {
   margin-left: 5%;
 }
-
 
 .postBar {
   position: relative;
@@ -53,7 +50,7 @@ body {
   z-index: 1;
 }
 
-.loginPageDiv{
+.loginPageDiv {
   padding: 10%;
   background-color: rgb(132, 178, 221);
   font-size: 34px;
@@ -81,7 +78,7 @@ body {
   width: 40%;
 }
 
-.tagDiv{
+.tagDiv {
   display: inline-block;
   margin-right: 1%;
 }
@@ -94,12 +91,20 @@ body {
   padding: 6px;
   padding-left: 15px;
   padding-right: 15px;
-  background-image: linear-gradient(rgb(60, 92, 60), rgb(34, 48, 167), rgb(65, 152, 158));
+  background-image: linear-gradient(
+    rgb(60, 92, 60),
+    rgb(34, 48, 167),
+    rgb(65, 152, 158)
+  );
   color: white;
 }
 
 .mainPost {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 60, 255, 0.6), rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 60, 255, 0.6),
+    rgba(0, 0, 0, 0.5)
+  );
   background-color: rgba(0, 0, 0, 0);
   color: white;
   border: none;
@@ -109,6 +114,10 @@ body {
 
 .mainPost:hover {
   color: rgb(252, 99, 99);
-  background-image: linear-gradient(rgba(0, 60, 255, 0.6), rgba(0, 0, 0, 0.5), rgba(0, 60, 255, 0.6),);
+  background-image: linear-gradient(
+    rgba(0, 60, 255, 0.6),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 60, 255, 0.6)
+  );
   scale: (1.2);
 }

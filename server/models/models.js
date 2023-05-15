@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // Connecting to MongoDB
 const MONGO_URI =
-  'mongodb+srv://sjkim:teamdesk@cluster0.i4p1ki5.mongodb.net/?retryWrites=true&w=majority';
+  "mongodb+srv://sjkim:teamdesk@cluster0.i4p1ki5.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'users',
+    dbName: "users",
   })
-  .then(() => console.log('Connected to Mongo DB'))
+  .then(() => console.log("Connected to Mongo DB"))
   .catch((err) => console.log(err));
 
 const Schema = mongoose.Schema;
@@ -19,18 +19,18 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  profilePic: { type: String, default: 'someUrl' },
+  profilePic: { type: String, default: "someUrl" },
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
 });
 
 // Bcrypt Functionality:
 const SALT_WORK_FACTOR = 10;
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 
-userSchema.pre('save', function(next) {
+userSchema.pre("save", function (next) {
   bcrypt.hash(this.password, SALT_WORK_FACTOR, (err, hash) => {
-    if(err) return next(err); // convert this to fit our global error handler format?
+    if (err) return next(err); // convert this to fit our global error handler format?
 
     // reassign document's password to its hashed version:
     this.password = hash;
@@ -38,19 +38,19 @@ userSchema.pre('save', function(next) {
   });
 });
 
-const User = mongoose.model('user', userSchema);
+const User = mongoose.model("user", userSchema);
 
 // Schema for 'posts' collection
 const postSchema = new Schema({
   date: { type: Date, default: Date.now },
-  userId: {type: String},
+  userId: { type: String },
   postTitle: { type: String, required: true },
   postBody: { type: String, required: true },
-  postTag: { type: String, default: 'uncategorized' },
+  postTag: { type: String, default: "uncategorized" },
   numLikes: { type: Number, default: 0 },
 });
 
-const Post = mongoose.model('post', postSchema);
+const Post = mongoose.model("post", postSchema);
 
 // Schema for 'comments' collection
 const commentSchema = new Schema({
@@ -60,7 +60,7 @@ const commentSchema = new Schema({
   numLikes: { type: Number, default: 0 },
 });
 
-const Comment = mongoose.model('comment', commentSchema);
+const Comment = mongoose.model("comment", commentSchema);
 
 // // Schema for 'subcomments' collection
 // const subcommentSchema = new Schema({
@@ -72,7 +72,6 @@ const Comment = mongoose.model('comment', commentSchema);
 // });
 
 // const Subcomment = mongoose.model('subcomment', subcommentSchema);
-
 
 module.exports = { User, Post, Comment };
 

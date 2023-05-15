@@ -1,17 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const userReducer = createSlice({
-  name: 'userReducer',
+  name: "userReducer",
   initialState: {
     currentUser: null,
     currentPost: null, // postid
-    currentPostHTML: [], 
+    currentPostHTML: [],
     errorMessage: [],
     tags: [],
     searchResultPosts: [],
     allPosts: [],
     currentComments: [],
-    currentPostId: null
+    currentPostId: null,
   },
 
   reducers: {
@@ -25,7 +25,7 @@ export const userReducer = createSlice({
       state.errorMessage = action.payload;
     },
     setTags: (state, action) => {
-      if (action.payload === 'delete') state.tags = [];
+      if (action.payload === "delete") state.tags = [];
       else if (state.tags.includes(action.payload))
         state.tags = state.tags
           .slice(0, state.tags.indexOf(action.payload))
@@ -33,22 +33,33 @@ export const userReducer = createSlice({
       else state.tags = [...state.tags, action.payload];
     },
     setSearchResultPosts: (state, action) => {
-      state.searchResultPosts = action.payload === 'delete' ? [] : [...state.searchResultPosts, action.payload];
+      state.searchResultPosts =
+        action.payload === "delete"
+          ? []
+          : [...state.searchResultPosts, action.payload];
     },
-     setAllPosts: (state, action) => {
-      state.allPosts = [action.payload, ...state.allPosts]
+    setAllPosts: (state, action) => {
+      state.allPosts = [action.payload, ...state.allPosts];
     },
     setCurrentComments: (state, action) => {
-      if(action.payload === 'delete') state.currentComments = []
+      if (action.payload === "delete") state.currentComments = [];
       else state.currentComments = [...state.currentComments, action.payload];
     },
     setCurrentPostId: (state, action) => {
-      state.currentPostId = action.payload
-    }
+      state.currentPostId = action.payload;
+    },
   },
 });
 
-export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts, setCurrentComments, setCurrentPostId } = userReducer.actions;
-
+export const {
+  setCurrentUser,
+  setCurrentPost,
+  setErrorMessage,
+  setTags,
+  setSearchResultPosts,
+  setAllPosts,
+  setCurrentComments,
+  setCurrentPostId,
+} = userReducer.actions;
 
 export default userReducer.reducer;

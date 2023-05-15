@@ -1,91 +1,91 @@
 .post {
-    background-image: url('https://static.vecteezy.com/system/resources/previews/007/120/314/original/galaxy-background-with-falling-star-space-galaxy-illustration-free-vector.jpg');
-    min-width: 100%;
-    min-height: 800px;
-    height: auto;
-    overflow-y: scroll;
-    text-align: center;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/007/120/314/original/galaxy-background-with-falling-star-space-galaxy-illustration-free-vector.jpg");
+  min-width: 100%;
+  min-height: 800px;
+  height: auto;
+  overflow-y: scroll;
+  text-align: center;
 }
 
 .otterLogo {
-    position: relative;
-    font-size: 35px;
-    top: 5px;
-    transition: 0.25s;
-    color: white;
-  }
-  
-  .otterLogo:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+  position: relative;
+  font-size: 35px;
+  top: 5px;
+  transition: 0.25s;
+  color: white;
+}
 
-  .postNav {
-    height: 50px;
-    min-width: 100%;
-    justify-content: center;
-    text-align: center;
-    padding-top: 20px;
-  }
+.otterLogo:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 
-  .postBody {
-    border: 2px solid black;
-    height: 500px;
-    width: 75%;
-    justify-content: center;
-    border-radius: 4px;
-  }
+.postNav {
+  height: 50px;
+  min-width: 100%;
+  justify-content: center;
+  text-align: center;
+  padding-top: 20px;
+}
 
-  .commentBox {
-    justify-content: center;
-    text-align: center;
-    margin-top: 60px;
-  }
+.postBody {
+  border: 2px solid black;
+  height: 500px;
+  width: 75%;
+  justify-content: center;
+  border-radius: 4px;
+}
 
-  .input {
-    height: 100px;
-    width: 80vh;
-    text-align: center;
-  }
+.commentBox {
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+}
 
-  .commentButton {
-    height: 50px;
-    width: 20vh;
-    margin-left: 2em;
-    background-color: purple;
-    border-radius: 6px 1px;
-    color: white;
-  }
+.input {
+  height: 100px;
+  width: 80vh;
+  text-align: center;
+}
 
-  .currentCommentBody {
-    border: 2px solid white;
-    color: white;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    background-color: purple;
-  }
+.commentButton {
+  height: 50px;
+  width: 20vh;
+  margin-left: 2em;
+  background-color: purple;
+  border-radius: 6px 1px;
+  color: white;
+}
 
-  .currentClickedPost {
-    border: 2px solid white;
-    background-color: purple;
-    margin-top: 3em;
-    color: white;
-    border-radius: 6px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.currentCommentBody {
+  border: 2px solid white;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background-color: purple;
+}
 
-  .commentsBoxBorder {
-    margin-top: 10px;
-    padding: 10px;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    align-content: center;
-    width: 50%;
-    border-radius: 6px;
-  }
+.currentClickedPost {
+  border: 2px solid white;
+  background-color: purple;
+  margin-top: 3em;
+  color: white;
+  border-radius: 6px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.commentsBoxBorder {
+  margin-top: 10px;
+  padding: 10px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  align-content: center;
+  width: 50%;
+  border-radius: 6px;
+}

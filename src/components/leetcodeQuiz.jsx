@@ -1,7 +1,7 @@
-import React from 'react';
-import '../stylesheets/leetcodeStyles.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { setErrorMessage } from '../store/userReducer';
+import React from "react";
+import "../stylesheets/leetcodeStyles.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { setErrorMessage } from "../store/userReducer";
 
 export default function LeetCode() {
   const randomNum = Math.floor(Math.random() * 1);
@@ -21,7 +21,7 @@ export default function LeetCode() {
     //   <p>Return 0 if no profit is possible OR if input is invalid.</p>
     // </div>,
 
-    <div className='leetcodeProblem'>
+    <div className="leetcodeProblem">
       <h1>Write a function that takes a string of text and returns true if</h1>
       <h1>the parentheses are balanced and false otherwise.</h1>
       <h4>Example:</h4>
@@ -39,38 +39,56 @@ export default function LeetCode() {
       <p>ignore non-bracket characters</p>
       <h4>Example:</h4>
       <p>balancedParens{"(' const wow = { yo: thisIsAwesome() }'); // true"}</p>
-      <p>balancedParens{"(' const newton = () => { telescopes.areSicc(); '); // false"}</p>
+      <p>
+        balancedParens
+        {"(' const newton = () => { telescopes.areSicc(); '); // false"}
+      </p>
     </div>,
   ];
 
   function evaluate(inputString) {
-    const index = inputString.indexOf('args');
-    const test1 = inputString.slice(0, index) + "'[](){}'" + inputString.slice(index + 4);
-    const test2 = inputString.slice(0, index) + "'[(]{)}'" + inputString.slice(index + 4);
-    const test3 = inputString.slice(0, index) + "')('" + inputString.slice(index + 4);
-    const test4 = inputString.slice(0, index) + "'('" + inputString.slice(index + 4);
-    const test5 = inputString.slice(0, index) + "'const wow = { yo: thisIsAwesome() }'" + inputString.slice(index + 4);
+    const index = inputString.indexOf("args");
+    const test1 =
+      inputString.slice(0, index) + "'[](){}'" + inputString.slice(index + 4);
+    const test2 =
+      inputString.slice(0, index) + "'[(]{)}'" + inputString.slice(index + 4);
+    const test3 =
+      inputString.slice(0, index) + "')('" + inputString.slice(index + 4);
+    const test4 =
+      inputString.slice(0, index) + "'('" + inputString.slice(index + 4);
+    const test5 =
+      inputString.slice(0, index) +
+      "'const wow = { yo: thisIsAwesome() }'" +
+      inputString.slice(index + 4);
     try {
-      if (eval(test1) && !eval(test2) && !eval(test3) && !eval(test4) && eval(test5)) {
-        document.querySelector('.answeredLeetCode').style.display = 'block';
-        document.querySelector('.leetCodeQuestion').style.display = 'none';
+      if (
+        eval(test1) &&
+        !eval(test2) &&
+        !eval(test3) &&
+        !eval(test4) &&
+        eval(test5)
+      ) {
+        document.querySelector(".answeredLeetCode").style.display = "block";
+        document.querySelector(".leetCodeQuestion").style.display = "none";
         dispatch(setErrorMessage([]));
       } else {
-        dispatch(setErrorMessage(<h1 style={{ color: 'red' }}>You're wrong</h1>));
+        dispatch(
+          setErrorMessage(<h1 style={{ color: "red" }}>You're wrong</h1>)
+        );
       }
     } catch {
-      dispatch(setErrorMessage(<h1 style={{ color: 'red' }}>You're wrong</h1>));
+      dispatch(setErrorMessage(<h1 style={{ color: "red" }}>You're wrong</h1>));
     }
   }
 
   return (
-    <div className='leetCodeQuestion'>
+    <div className="leetCodeQuestion">
       {questions[randomNum]}
       {errorMessage}
       <textarea
-        id='leetCodeAnswer'
-        cols='120'
-        rows='30'
+        id="leetCodeAnswer"
+        cols="120"
+        rows="30"
         placeholder={
           'Must execute function at the end.\nInput parameter when executing must be "args".\n "args" must not be used anywhere else.\nEx:\nfunction myFunction(input) {console.log(input)}\nmyfunction(args)'
         }
@@ -78,8 +96,9 @@ export default function LeetCode() {
       <br />
       <button
         onClick={() => {
-          evaluate(document.querySelector('#leetCodeAnswer').value);
-        }}>
+          evaluate(document.querySelector("#leetCodeAnswer").value);
+        }}
+      >
         Submit
       </button>
     </div>

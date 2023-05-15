@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentUser } from './store/userReducer';
-import MainPage from './pages/mainPage';
-import LoginPage from './pages/loginPage';
-import SignUpPage from './pages/signUpPage';
-import PostPage from './pages/postPage';
-import WelcomePage from './pages/WelcomePage';
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentUser } from "./store/userReducer";
+import MainPage from "./pages/mainPage";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signUpPage";
+import PostPage from "./pages/postPage";
+import WelcomePage from "./pages/WelcomePage";
 
 function App() {
   const currentUser = useSelector((state) => state.userReducer.currentUser);
@@ -15,18 +15,16 @@ function App() {
   // if sesssion id cookie exists in database, set currentUser to username
   // navigate to /currentUser
 
-  useEffect(() =>{
-// fetch to server with session cookie
-  })
-    
+  useEffect(() => {
+    // fetch to server with session cookie
+  });
 
-  
   return (
     <Routes>
-      <Route path={`/post`} element={<PostPage />} />{' '} 
+      <Route path={`/post`} element={<PostPage />} />{" "}
       {/* <Route path={`/${currentUser}/${currentPost}`} element={<PostPage />}/> */}
-      <Route path='/signuppage' element={<SignUpPage />} />
-      <Route path='/loginpage' element={<LoginPage />} />
+      <Route path="/signuppage" element={<SignUpPage />} />
+      <Route path="/loginpage" element={<LoginPage />} />
       <Route path={`/`} element={<MainPage />} />
     </Routes>
   );

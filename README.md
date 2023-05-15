@@ -57,6 +57,7 @@ password: "1234",
 __v: 0
 }
 ```
+
 <br/>
 
 ## Required states
@@ -143,6 +144,7 @@ Comment states renders comment data. This can be nested in post states as all co
 - userBlocks // **array of strings**
   - userEnemiesID// **string**
 - userComments // **array of strings**
+
   - commentID // **string**
 
 - allPosts // **array of objects**
