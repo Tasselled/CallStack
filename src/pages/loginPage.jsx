@@ -135,7 +135,7 @@ function loginPage() {
                   )
                 );
                 navigate(
-                  `../posts`
+                  `../post`
                 );
               }}>
               <h1>{mockData[i].postTitle}</h1>

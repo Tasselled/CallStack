@@ -30,7 +30,7 @@ function PostBar () {
                   )
                 );
                 navigate(
-                  `../${username}/posts`
+                  `../post`
                 );
               }}>
               <h1>{newPostTitle}</h1>
@@ -83,7 +83,7 @@ function PostBar () {
                   )
                 );
                 navigate(
-                  `../${username}/posts`
+                  `./post`
                 );
               }}>
               <h1>{newPostTitle}</h1>

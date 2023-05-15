@@ -33,7 +33,6 @@ function SignUpPage() {
     }
   }
 
-
   const mockData = [
     {
       date: 5 / 23 / 2023,
@@ -52,7 +51,6 @@ function SignUpPage() {
       numLikes: 1,
     },
   ];
-
 
   function getPosts() {
     fetch('/')
@@ -90,56 +88,50 @@ function SignUpPage() {
       });
   }
 
-
   function mockGet(mockData) {
-
-  function mockGet(mockData) {
-
-    for (let i = 0; i < mockData.length; i++) {
-      dispatch(
-        setAllPosts(
-          <div>
+    function mockGet(mockData) {
+      for (let i = 0; i < mockData.length; i++) {
+        dispatch(
+          setAllPosts(
             <div>
-              <img src='' alt='user-photo' />
+              <div>
+                <img src='' alt='user-photo' />
+              </div>
+
+              <button
+                className='mainPost'
+                onClick={() => {
+                  dispatch(
+                    setCurrentPost(
+                      <div>
+                        <h1>{mockData[i].postTitle}</h1>
+                        <p>{mockData[i].postBody}</p>
+                        <div>{mockData[i].postTag}</div>
+                        <div>{mockData[i].numLikes}</div>
+                        <div>{mockData[i].numComments}</div>
+                      </div>
+                    )
+                  );
+                  navigate(`../post`);
+                }}>
+                <h1>{mockData[i].postTitle}</h1>
+                <p>{mockData[i].postBody}</p>
+                <div>{mockData[i].postTag}</div>
+                <div>{mockData[i].numLikes}</div>
+                <div>{mockData[i].numComments}</div>
+              </button>
+
+              <div>
+                <button>Tags</button>
+                <button>Like</button>
+                <button>Comment</button>
+                <button>Date</button>
+              </div>
             </div>
-
-
-            <button
-              className='mainPost'
-              onClick={() => {
-                dispatch(
-                  setCurrentPost(
-                    <div>
-                      <h1>{mockData[i].postTitle}</h1>
-                      <p>{mockData[i].postBody}</p>
-                      <div>{mockData[i].postTag}</div>
-                      <div>{mockData[i].numLikes}</div>
-                      <div>{mockData[i].numComments}</div>
-                    </div>
-                  )
-                );
-                navigate(
-                  `../post`
-                );
-              }}>
-              <h1>{mockData[i].postTitle}</h1>
-              <p>{mockData[i].postBody}</p>
-              <div>{mockData[i].postTag}</div>
-              <div>{mockData[i].numLikes}</div>
-              <div>{mockData[i].numComments}</div>
-            </button>
-
-            <div>
-              <button>Tags</button>
-              <button>Like</button>
-              <button>Comment</button>
-              <button>Date</button>
-            </div>
-          </div>
-        )
-      );
+          )
+        );
+      }
     }
-
   }
 
   return (
