@@ -4,7 +4,8 @@ export const userReducer = createSlice({
   name: 'userReducer',
   initialState: {
     currentUser: null,
-    currentPost: null,
+    currentPost: null, // postid
+    currentPostHTML: [], 
     errorMessage: [],
     tags: [],
     searchResultPosts: [],
