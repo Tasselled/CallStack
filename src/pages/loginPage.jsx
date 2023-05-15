@@ -122,15 +122,7 @@ function loginPage() {
                   )
                 );
                 navigate(
-                  `../${username}/${(
-                    <div>
-                      <h1>{mockData[i].postTitle}</h1>
-                      <p>{mockData[i].postBody}</p>
-                      <div>{mockData[i].postTag}</div>
-                      <div>{mockData[i].numLikes}</div>
-                      <div>{mockData[i].numComments}</div>
-                    </div>
-                  )}`
+                  `../${username}/posts`
                 );
               }}>
               <h1>{mockData[i].postTitle}</h1>
