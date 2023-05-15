@@ -1,5 +1,4 @@
 import React from "react";
-import PostedDiv from "../components/postedDiv";
 import { Link, useNavigate } from "react-router-dom";
 import { setCurrentUser, setErrorMessage, setCurrentComments, setCurrentPost } from "../store/userReducer";
 import { useSelector, useDispatch } from "react-redux";
