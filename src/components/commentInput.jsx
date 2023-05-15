@@ -1,15 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import '../stylesheets/postPageStyles.scss'
+import { setNewComment, setErrorMessage} from '../store/userReducer';
+import { useDispatch, useSelector } from 'react-redux'; 
 
+function CommentInput() {
+    let dispatch = useDispatch();
+    //onClick of comment button, send a post request of the comment to the database
+        //then update state of currentComments 
+    function postComment(comment){
+        fetch('/comment', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'Application/JSON',
+            },
+            body: JSON.stringify({
+              commentBody: comment,
+            }),
+          })
+          .then((res) => {
+            if (res.body) {
+              dispatch(setErrorMessage([]))
+              dispatch(setNewComment(comment));
+            } else {
+              dispatch(setErrorMessage([<p></p>]))
+            }
+          })
+          
+    }
 
-function commentInput() {
     return (
-        <div>
-        {/* <input></input>      input will be a text field for someone to write their comment */}
-        {/* <button type="submit"></button>    button will function as a submit to send the comment to the server so it updates on the page */}
+        <div class="commentBox">
+            <input class="input" placeholder="Write your comment here"></input>    
+            <button class="commentButton" type="submit" onClick={(() => {postComment(document.querySelector('.input').value)} )}>Comment</button> 
         </div>
        )
 }
 
-export default commentInput;
+export default CommentInput;
