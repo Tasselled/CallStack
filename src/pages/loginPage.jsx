@@ -47,6 +47,22 @@ function loginPage() {
     {
       date: 5 / 23 / 2023,
       userId: 'drake',
+      postTitle: 'Can I buy a porsche with a total comp of $300k?',
+      postBody: `Now I got a house in LA Now I got a bigger pool than Ye And look man, Ye's pool is nice Mine's just big is what I'm saying`,
+      postTag: 'default',
+      numLikes: 1,
+    },
+    {
+      date: 5 / 23 / 2023,
+      userId: 'wayne',
+      postTitle: 'I just rejected a $500k total comp from Amazon because I want to work remote',
+      postBody: `just testing this`,
+      postTag: 'default',
+      numLikes: 1,
+    },
+    {
+      date: 5 / 23 / 2023,
+      userId: 'drake',
       postTitle: 'This is our first title',
       postBody: `Now I got a house in LA Now I got a bigger pool than Ye And look man, Ye's pool is nice Mine's just big is what I'm saying`,
       postTag: 'default',
