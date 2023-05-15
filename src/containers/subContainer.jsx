@@ -7,7 +7,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 
 
+
+
 function SubContainer () {
+  const allPosts = useSelector(state=>state.userReducer.allPosts);
   const dispatch = useDispatch();
   
   const errorMessage = useSelector(state => state.userReducer.errorMessage); 
@@ -32,13 +35,10 @@ function SubContainer () {
       }
     })
   }
-
   return (
     <div>
-      {/* This is going to be an array of posts which are out postedDiv components*/}
-    </div>
-    
-    
+      {allPosts}
+    </div>  
   )
 }
 

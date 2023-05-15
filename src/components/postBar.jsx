@@ -2,7 +2,7 @@ import React from "react";
 import TagDropDownButton from "./TagDropDownButton";
 import TagLinks from "./tagLinks";
 
-function PostBar () {
+function PostBar ({}) {
   function makePost () {
     
   }

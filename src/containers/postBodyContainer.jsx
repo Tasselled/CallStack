@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import CommentInput from '../components/commentInput'
 import PostBody from '../components/postBody.jsx'
 
-
 //get request for comments should be done as an onclick in main body so this page just needs to assign items in currentPost to show, and then pulls
     //state of currentComments and renders them
 function PostBodyContainer() {

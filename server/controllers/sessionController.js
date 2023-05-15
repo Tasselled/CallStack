@@ -10,7 +10,7 @@ sessionController.isLoggedIn = async (req, res, next) => {
   
   // Find ssid cookie in DB to see if user is logged in:
   try {
-    const session = await Session.findOne({cookieId: req.cookies.ssid});
+    const session = await Session.findOne({cookieId: res.cookies.ssid});
 
     if(!session) { // no session found
       return res.send(false) // Redirect to Signup here? Or login or main landing page?    
@@ -30,16 +30,19 @@ sessionController.isLoggedIn = async (req, res, next) => {
 startSession - create & save a new Session into the DB
 */
 sessionController.startSession = async (req, res, next) => {
+  console.log("COOKIEID",  res.locals.user)
   try {
-    await Session.create({cookieId: res.locals.user});
+    await Session.findOneAndUpdate({cookieId: res.locals.user}, {createdAt: Date.now()}, {upsert: true, setDefaultsOnInsert: true});
     return next();
   } catch {
+
     return next({
       log: 'Error occured in sessionController.startSession' ,
       status: 500,
       message: {err: 'An error occurred'},
     });
   }
+
 }
 
 module.exports = sessionController;
