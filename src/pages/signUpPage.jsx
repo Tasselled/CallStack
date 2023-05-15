@@ -36,45 +36,83 @@ function SignUpPage () {
 
   }
 
-  const mockData = [{
-    date: 5/23/2023,
-    userId: 'drake',
-    postTitle: 'I wish i was jamaican',
-    postBody: `Now I got a house in LA Now I got a bigger pool than Ye And look man, Ye's pool is nice Mine's just big is what I'm saying`,
-    postTag: 'default',
-    numLikes: 1,
-  },
-  {
-  date: 5/23/2023,
-  userId: 'wayne',
-  postTitle: 'I wish i was french',
-  postBody: `just testing this`,
-  postTag: 'default',
-  numLikes: 1,
-}]
- 
-  
-
-  function getPosts () {
+  function getPosts() {
     fetch('/')
-    .then(response => response.json())
-    .then(posts => {
-      
-      for (let i = 0; i < posts.length; i++) {
-          dispatch(setAllPosts(
+      .then((response) => response.json())
+      .then((posts) => {
+        for (let i = 0; i < posts.length; i++) {
+          dispatch(
+            setAllPosts(
+              <div>
+                <div>
+                  <img src='' alt='user-photo' />
+                </div>
+
+                <button className='mainPost'>
+                  <h1>{posts[i].postTitle}</h1>
+                  <p>{posts[i].postBody}</p>
+                  <div>{posts[i].postTag}</div>
+                  <div>{posts[i].numLikes}</div>
+                  <div>{posts[i].numComments}</div>
+                </button>
+
+                <div>
+                  <button>Tags</button>
+                  <button>Like</button>
+                  <button>Comment</button>
+                  <button>Date</button>
+                </div>
+              </div>
+            )
+          );
+        }
+      })
+      .catch((err) => {
+        console.log('There was an error loading posts', err);
+      });
+  }
+
+  function mockGet(mockData, username) {
+    for (let i = 0; i < mockData.length; i++) {
+      dispatch(
+        setAllPosts(
           <div>
             <div>
-              <img src="" alt="user-photo" />
+              <img src='' alt='user-photo' />
             </div>
-            
-            <button className="mainPost">
-              <h1>{posts[i].postTitle}</h1>
-              <p>{posts[i].postBody}</p>
-              <div>{posts[i].postTag}</div>
-              <div>{posts[i].numLikes}</div>
-              <div>{posts[i].numComments}</div>
+
+            <button
+              className='mainPost'
+              onClick={() => {
+                dispatch(
+                  setCurrentPost(
+                    <div>
+                      <h1>{mockData[i].postTitle}</h1>
+                      <p>{mockData[i].postBody}</p>
+                      <div>{mockData[i].postTag}</div>
+                      <div>{mockData[i].numLikes}</div>
+                      <div>{mockData[i].numComments}</div>
+                    </div>
+                  )
+                );
+                navigate(
+                  `../${username}/${(
+                    <div>
+                      <h1>{mockData[i].postTitle}</h1>
+                      <p>{mockData[i].postBody}</p>
+                      <div>{mockData[i].postTag}</div>
+                      <div>{mockData[i].numLikes}</div>
+                      <div>{mockData[i].numComments}</div>
+                    </div>
+                  )}`
+                );
+              }}>
+              <h1>{mockData[i].postTitle}</h1>
+              <p>{mockData[i].postBody}</p>
+              <div>{mockData[i].postTag}</div>
+              <div>{mockData[i].numLikes}</div>
+              <div>{mockData[i].numComments}</div>
             </button>
-       
 
             <div>
               <button>Tags</button>
@@ -83,43 +121,8 @@ function SignUpPage () {
               <button>Date</button>
             </div>
           </div>
-          ))
-      }
-      
-    })
-    .catch(err => {
-      console.log('There was an error loading posts', err)
-    })
-  }
-
-
-  function mockGet (mockData) {
-    for (let i = 0; i < mockData.length; i++) {
-        dispatch(setAllPosts(
-        <div>
-          <div>
-            <img src="" alt="user-photo" />
-          </div>
-          
-          <button className='mainPost'>
-            <h1>{mockData[i].postTitle}</h1>
-            <p>{mockData[i].postBody}</p>
-            <div>{mockData[i].postTag}</div>
-            <div>{mockData[i].numLikes}</div>
-            <div>{mockData[i].numComments}</div>
-          </button>
-       
-
-          <div>
-            <button>Tags</button>
-            <button>Like</button>
-            <button>Comment</button>
-            <button>Date</button>
-          </div>
-        </div>
-        ))
-      
-     
+        )
+      );
     }
    
   }
