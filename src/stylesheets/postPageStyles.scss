@@ -1,8 +1,9 @@
 .post {
     background-image: url('https://static.vecteezy.com/system/resources/previews/007/120/314/original/galaxy-background-with-falling-star-space-galaxy-illustration-free-vector.jpg');
     min-width: 100%;
-    min-height: 100%;
-    height: 800px;
+    min-height: 800px;
+    height: auto;
+    overflow-y: scroll;
     text-align: center;
 }
 
@@ -56,19 +57,22 @@
   }
 
   .currentCommentBody {
-    border: 2px solid black;
-    background-color: white;
-    color: black;
+    border: 2px solid white;
+    color: white;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .currentClickedPost {
-    background-color: white;
-    border: 1px solid black;
-    margin-top: 20px;
+    border: 2px solid white;
+    margin-top: 3em;
+    color: white;
   }
 
   .commentsBoxBorder {
+    margin-top: 10px;
+    padding: 10px;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
