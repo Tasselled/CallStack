@@ -67,9 +67,7 @@ function PostBar () {
     }).then(() => {
       dispatch(setAllPosts(
         <div>
-            <div>
-              <img src='' alt='user-photo' />
-            </div>
+            
 
             <button
               className='mainPost'
@@ -89,6 +87,7 @@ function PostBar () {
                   `./post`
                 );
               }}>
+                
               <h1>{newPostTitle}</h1>
               <p>{newPostBody}</p>
               <div>{postTag}</div>
@@ -109,24 +108,23 @@ function PostBar () {
   return (
     <div className="postBar">
       <div>
-        <img src="" alt="user-profile-photo" />
-      </div>
-      
-      <div>
         <input type="text" placeholder="Enter a title" id="newPostTitle"/>
-        <input type="text" placeholder="Enter your post" id="newPostBody"/>
-
+        <br/>
+        <textarea type="text" placeholder="Enter your post" id="newPostBody" cols="40" rows="5"/>
+        <br/>
         <div className="dropdown tagDiv">
           <TagDropDownButton tagLink='Tag'/>
           <TagLinks />
         </div>
+       
         
-        <button type="submit"
+        <button className="postButtonSubmit" type="submit"
         onClick={() => {
           makePost(document.querySelector('#newPostTitle').value, document.querySelector('#newPostBody').value, 'uncategorized')
         }}>
           Post
         </button>
+
       </div>
         
     </div>

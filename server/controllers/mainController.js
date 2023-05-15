@@ -64,9 +64,10 @@ mainController.getPostComments = async (req, res, next) => {
 
 // Creating Post Comments
 mainController.createPostComments = (req, res, next) => {
-    const {postId, commentBody, numLikes} = req.body;
+    const {postId, commentBody} = req.body;
+    console.log("PostID!!!!", postId)
 
-    Comment.create({ postId, commentBody, numLikes})
+    Comment.create({ postId, commentBody})
     .then((comment) => {
       res.locals.comment = comment.id;
       return next();

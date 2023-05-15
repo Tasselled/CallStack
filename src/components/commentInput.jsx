@@ -5,15 +5,17 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function CommentInput() {
     let dispatch = useDispatch();
+    let currentPostId = useSelector(state => state.userReducer.currentPostId)
     //onClick of comment button, send a post request of the comment to the database
         //then update state of currentComments 
     function postComment(comment){
-        fetch('/comment', {
+        fetch('/main/createPostComments', {
             method: 'POST',
             headers: {
               'Content-Type': 'Application/JSON',
             },
             body: JSON.stringify({
+              postId: currentPostId,
               commentBody: comment,
             }),
           })

@@ -11,7 +11,7 @@ export const userReducer = createSlice({
     searchResultPosts: [],
     allPosts: [],
     currentComments: [],
-
+    currentPostId: null
   },
 
   reducers: {
@@ -42,10 +42,13 @@ export const userReducer = createSlice({
       if(action.payload === 'delete') state.currentComments = []
       else state.currentComments = [...state.currentComments, action.payload];
     },
+    setCurrentPostId: (state, action) => {
+      state.currentPostId = action.payload
+    }
   },
 });
 
-export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts, setCurrentComments } = userReducer.actions;
+export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts, setCurrentComments, setCurrentPostId } = userReducer.actions;
 
 
 export default userReducer.reducer;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'; // react redux hooks
 
 // redux action creators which we send in our dispatch.they take in the payload
 // PS: we gave our types and action creators the same name.
-import { setErrorMessage, setCurrentUser, setAllPosts, setCurrentPost, setCurrentComments } from '../store/userReducer';
+import { setErrorMessage, setCurrentUser, setAllPosts, setCurrentPost, setCurrentComments, setCurrentPostId } from '../store/userReducer';
 
 function loginPage() {
   const dispatch = useDispatch(); // the useDispatch is a react redux hook that lets us use our dispatch function in redux
@@ -118,8 +118,8 @@ function loginPage() {
                         </div>
                       )
                     );
-                    console.log("POSTID", posts[i]._id)
                     getComments(posts[i]._id)
+                    dispatch(setCurrentPostId(posts[i]._id))
                     navigate(`../post`);
                     
                   }}>
@@ -146,49 +146,6 @@ function loginPage() {
       });
   }
 
-  function mockGet(mockData) {
-    for (let i = 0; i < mockData.length; i++) {
-      dispatch(
-        setAllPosts(
-          <div>
-            <div>
-              <img src='' alt='user-photo' />
-            </div>
-
-            <button
-              className='mainPost'
-              onClick={() => {
-                dispatch(
-                  setCurrentPost(
-                    <div className='currentClickedPost'>
-                      <h1>{mockData[i].postTitle}</h1>
-                      <p>{mockData[i].postBody}</p>
-                      <div>{mockData[i].postTag}</div>
-                      <div>{mockData[i].numLikes}</div>
-                      <div>{mockData[i].numComments}</div>
-                    </div>
-                  )
-                );
-                navigate(`../post`);
-              }}>
-              <h1>{mockData[i].postTitle}</h1>
-              <p>{mockData[i].postBody}</p>
-              <div>{mockData[i].postTag}</div>
-              <div>{mockData[i].numLikes}</div>
-              <div>{mockData[i].numComments}</div>
-            </button>
-
-            <div>
-              <button>Tags</button>
-              <button>Like</button>
-              <button>Comment</button>
-              <button>Date</button>
-            </div>
-          </div>
-        )
-      );
-    }
-  }
 
   function getComments(postId){
     fetch('/main/getPostComments',{
@@ -216,20 +173,6 @@ function loginPage() {
           );
         }
       })
-  }
-
-  function mockGetComments() {
-    for (let i = 0; i < mockComments.length; i++) {
-      dispatch(
-        setCurrentComments(
-          <div className='currentCommentBody'>
-            <p>{mockComments[i].userId}</p>
-            <p>{mockComments[i].commentBody}</p>
-            {/* <p>{mockComments[i].numLikes}</p> */}
-          </div>
-        )
-      );
-    }
   }
 
   return (

@@ -48,6 +48,7 @@ body {
 }
 
 .allPostsDiv {
+  text-align: center;
   position: relative;
   z-index: 1;
 }
@@ -62,4 +63,52 @@ body {
   padding: 10%;
   background-color: rgb(234, 158, 230);
   font-size: 34px;
+}
+
+.postBar {
+  text-align: center;
+}
+
+#newPostTitle {
+  width: 50%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  font-size: 32px;
+}
+
+#newPostBody {
+  width: 40%;
+}
+
+.tagDiv{
+  display: inline-block;
+  margin-right: 1%;
+}
+
+.postButtonSubmit {
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-left: 1%;
+  padding: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-image: linear-gradient(rgb(60, 92, 60), rgb(34, 48, 167), rgb(65, 152, 158));
+  color: white;
+}
+
+.mainPost {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 60, 255, 0.6), rgba(0, 0, 0, 0.5));
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+  width: 70%;
+  transition: 0.5s;
+}
+
+.mainPost:hover {
+  color: rgb(252, 99, 99);
+  background-image: linear-gradient(rgba(0, 60, 255, 0.6), rgba(0, 0, 0, 0.5), rgba(0, 60, 255, 0.6),);
+  scale: (1.2);
 }
