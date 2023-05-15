@@ -1,6 +1,7 @@
 import React from "react";
 
 function PostedDiv () {
+
   return (
     <div>
       <div>
