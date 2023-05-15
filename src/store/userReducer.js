@@ -21,7 +21,7 @@ export const userReducer = createSlice({
       state.errorMessage = action.payload;
     },
     setAllPosts: (state, action) => {
-      state.allPosts = action.payload
+      state.allPosts = [...state.allPosts, ...action.payload]
     }
   }
 })
