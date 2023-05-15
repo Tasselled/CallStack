@@ -3,6 +3,7 @@
     min-width: 100%;
     min-height: 100%;
     height: 800px;
+    text-align: center;
 }
 
 .otterLogo {
@@ -52,4 +53,26 @@
     background-color: purple;
     border-radius: 4px 1px;
     color: white;
+  }
+
+  .currentCommentBody {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    text-align: center;
+  }
+
+  .currentClickedPost {
+    background-color: white;
+    border: 1px solid black;
+    margin-top: 20px;
+  }
+
+  .commentsBoxBorder {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-content: center;
+    width: 50%;
   }
