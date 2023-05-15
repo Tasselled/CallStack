@@ -21,7 +21,7 @@ loginRouter.post('/loginRequest', // CONFIRM ROUTE NAME WITH FRONT-END TEAM!
   cookieController.setSSIDCookie, 
   (req, res) => {
   // return res.status(200).json(res.locals.dataFound);
-  return res.redirect(200, '/main'); // redirect to main after successful login
+  return res.sendStatus(200); 
 });
 
 // SIGN-UP REQUEST:
