@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 export const userReducer = createSlice({
   name: 'userReducer',
   initialState: {
     currentUser: null,
     currentPost: null,
-    errorMessage: []
+    errorMessage: [],
+    tags: [],
+    searchResultPosts: [],
   },
 
   reducers: {
@@ -19,9 +20,20 @@ export const userReducer = createSlice({
     setErrorMessage: (state, action) => {
       state.errorMessage = action.payload;
     },
-  }
-})
+    setTags: (state, action) => {
+      if (action.payload === 'delete') state.tags = [];
+      else if (state.tags.includes(action.payload))
+        state.tags = state.tags
+          .slice(0, state.tags.indexOf(action.payload))
+          .concat(state.tags.indexOf(action.payload) + 1);
+      else state.tags = [...state.tags, action.payload];
+    },
+    setSearchResultPosts: (state, action) => {
+      state.searchResultPosts = action.payload === 'delete' ? [] : [...state.searchResultPosts, action.payload];
+    },
+  },
+});
 
-export const {setCurrentUser, setCurrentPost, setErrorMessage} = userReducer.actions;
+export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts } = userReducer.actions;
 
-export default userReducer.reducer; 
+export default userReducer.reducer;
