@@ -10,9 +10,9 @@ const cookieController = require('../controllers/cookieController');
 Setting Cookie upon 1st visit to Login Page. Could also set cookie upon 1st visit to landing page. Would just need to understand route diff btwn '/' & '/static' & 'main'.
 Need to also include cookie setup at Sign-Up page.
 */
-app.get('/', cookieController.setCookie, (req, res) => {
-  res.status(200);
-})
+// app.get('/', cookieController.setCookie, (req, res) => {
+//   res.status(200);
+// })
 
 // LOGIN REQUEST: /login/loginRequest
 loginRouter.post('/loginRequest', // CONFIRM ROUTE NAME WITH FRONT-END TEAM!
