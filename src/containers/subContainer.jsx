@@ -28,7 +28,7 @@ function SubContainer () {
         dispatch(setErrorMessage([]));
         dispatch(setCurrentPost(postId));
         dispatch(setCurrentComments(res))
-        navigate(`/${username}/${currentPost}`);
+        navigate(`/post`);
       } else {
         dispatch(setErrorMessage([<p>No post found</p>]))
       }

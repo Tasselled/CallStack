@@ -27,7 +27,7 @@ function loginPage() {
       if (res.body) {
         dispatch(setErrorMessage([]));
         dispatch(setCurrentUser(username));
-        navigate(`/${username}`);
+        navigate(`/`);
       } else {
         dispatch(setErrorMessage([<p></p>]));
       }
@@ -39,7 +39,7 @@ function loginPage() {
     if (username === 'a' && password === 'a') {
       dispatch(setErrorMessage([]));
       dispatch(setCurrentUser(username));
-      navigate(`/${username}`);
+      navigate(`/`);
     } else dispatch(setErrorMessage([<p>incorrect username/password</p>]));
   }
 
@@ -122,7 +122,7 @@ function loginPage() {
                   )
                 );
                 navigate(
-                  `../${username}/${(
+                  `../${(
                     <div>
                       <h1>{mockData[i].postTitle}</h1>
                       <p>{mockData[i].postBody}</p>
@@ -172,7 +172,7 @@ function loginPage() {
         <button
           onClick={() => {
             mockLogin(document.querySelector('#username').value, document.querySelector('#password').value);
-            mockGet(mockData, document.querySelector('#username').value);
+            mockGet(mockData);
           }}>
           Login
         </button>
