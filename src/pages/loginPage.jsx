@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'; // specifically for rerouting you
+import { Routes, Route, Link, useNavigate, resolvePath } from 'react-router-dom'; // specifically for rerouting you
 import { useDispatch, useSelector } from 'react-redux'; // react redux hooks
 
 // redux action creators which we send in our dispatch.they take in the payload
@@ -14,7 +14,7 @@ function loginPage() {
   const navigate = useNavigate();
 
   function loginUser(username, password) {
-    fetch('/login', {
+    fetch('login/loginRequest', {
       method: 'POST',
       headers: {
         'Content-Type': 'Application/JSON',
@@ -24,12 +24,13 @@ function loginPage() {
         password: password,
       }),
     }).then((res) => {
-      if (res.body) {
+      if (res.status === 200) {
         dispatch(setErrorMessage([]));
         dispatch(setCurrentUser(username));
         navigate(`/`);
+        getPosts();
       } else {
-        dispatch(setErrorMessage([<p></p>]));
+        dispatch(setErrorMessage([<p>wrong password/username</p>]));
       }
     });
   }
@@ -80,21 +81,21 @@ function loginPage() {
 
   const mockComments = [
     {
-      userId: "KevinisDaBest1337",
-      commentBody: "Such an informative post!",
+      userId: 'KevinisDaBest1337',
+      commentBody: 'Such an informative post!',
       // numLikes: 46,
     },
     {
-      userId: "PraiseForPraise",
+      userId: 'PraiseForPraise',
       commentBody: "Redux is the best, people just don't get it",
       // numLikes: 2,
     },
-  ]
+  ];
 
   function getPosts() {
-    fetch('/')
+    fetch('/main/getAll')
       .then((response) => response.json())
-      .then((posts) => {
+      .then((posts) => {              
         for (let i = 0; i < posts.length; i++) {
           dispatch(
             setAllPosts(
@@ -103,7 +104,25 @@ function loginPage() {
                   <img src='' alt='user-photo' />
                 </div>
 
-                <button className='mainPost'>
+                <button
+                  className='mainPost'
+                  onClick={() => {
+                    dispatch(
+                      setCurrentPost(
+                        <div className='currentClickedPost'>
+                          <h1>{posts[i].postTitle}</h1>
+                          <p>{posts[i].postBody}</p>
+                          <div>{posts[i].postTag}</div>
+                          <div>{posts[i].numLikes}</div>
+                          <div>{posts[i].numComments}</div>
+                        </div>
+                      )
+                    );
+                    console.log("POSTID", posts[i]._id)
+                    getComments(posts[i]._id)
+                    navigate(`../post`);
+                    
+                  }}>
                   <h1>{posts[i].postTitle}</h1>
                   <p>{posts[i].postBody}</p>
                   <div>{posts[i].postTag}</div>
@@ -141,7 +160,7 @@ function loginPage() {
               onClick={() => {
                 dispatch(
                   setCurrentPost(
-                    <div className="currentClickedPost">
+                    <div className='currentClickedPost'>
                       <h1>{mockData[i].postTitle}</h1>
                       <p>{mockData[i].postBody}</p>
                       <div>{mockData[i].postTag}</div>
@@ -150,9 +169,7 @@ function loginPage() {
                     </div>
                   )
                 );
-                navigate(
-                  `../post`
-                );
+                navigate(`../post`);
               }}>
               <h1>{mockData[i].postTitle}</h1>
               <p>{mockData[i].postBody}</p>
@@ -173,17 +190,45 @@ function loginPage() {
     }
   }
 
-  function mockGetComments(){
-    for (let i = 0; i < mockComments.length; i++){
-      dispatch (
+  function getComments(postId){
+    fetch('/main/getPostComments',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/JSON',
+      },
+      body: JSON.stringify({
+       postId: postId
+      }),
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        console.log("COMMENTS!!!!!", res)
+        dispatch(setCurrentComments('delete'));
+        for (let i = 0; i < res.length; i++) {
+          dispatch(
+            setCurrentComments(
+              <div className='currentCommentBody'>
+                {/* <p>{res[i].userId}</p> */}
+                <p>{res[i].commentBody}</p>
+                {/* <p>{mockComments[i].numLikes}</p> */}
+              </div>
+            )
+          );
+        }
+      })
+  }
+
+  function mockGetComments() {
+    for (let i = 0; i < mockComments.length; i++) {
+      dispatch(
         setCurrentComments(
-          <div className="currentCommentBody">
+          <div className='currentCommentBody'>
             <p>{mockComments[i].userId}</p>
             <p>{mockComments[i].commentBody}</p>
             {/* <p>{mockComments[i].numLikes}</p> */}
           </div>
         )
-      )   
+      );
     }
   }
 
@@ -206,12 +251,8 @@ function loginPage() {
       <div>
         <button
           onClick={() => {
-            mockLogin(document.querySelector('#username').value, document.querySelector('#password').value);
-
-            mockGet(mockData);
-
-            mockGetComments();
-
+            loginUser(document.querySelector('#username').value, document.querySelector('#password').value);
+            
           }}>
           Login
         </button>

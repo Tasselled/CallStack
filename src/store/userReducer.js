@@ -39,7 +39,8 @@ export const userReducer = createSlice({
       state.allPosts = [action.payload, ...state.allPosts]
     },
     setCurrentComments: (state, action) => {
-      state.currentComments = [...state.currentComments, action.payload];
+      if(action.payload === 'delete') state.currentComments = []
+      else state.currentComments = [...state.currentComments, action.payload];
     },
   },
 });

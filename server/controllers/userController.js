@@ -43,7 +43,7 @@ userController.verifyUser = (req, res, next) => {
 
       if(!user) {
         // Trying to send back a boolean to the frontend if the user is not found in DB, while also interruption the middleware chain (i.e. no 'return next()' here). Same logic in line 54 below.
-        res.send(false);
+        res.sendStatus(404);
       }
 
       else {
@@ -53,7 +53,7 @@ userController.verifyUser = (req, res, next) => {
             console.log("RESULT", result)
             if(!result) {
               // passwords did not match
-              res.send(false);
+              res.sendStatus(404);
             } else {
               // passwords match!
               console.log("USERID", user.id)

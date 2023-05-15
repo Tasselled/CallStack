@@ -2,11 +2,13 @@ import React from "react";
 import TagDropDownButton from "./TagDropDownButton";
 import TagLinks from "./tagLinks";
 import { useSelector, useDispatch } from "react-redux";
-import { setAllPosts } from '../store/userReducer';
+import { setAllPosts, setCurrentPost } from '../store/userReducer';
+import { useNavigate } from "react-router-dom";
 
 function PostBar () {
   const dispatch = useDispatch();
   const currentUser = useSelector(state=>state.userReducer.currentUser)
+  const navigate = useNavigate()
 
   function mockPost  (newPostTitle, newPostBody, username, postTag) {
       dispatch(setAllPosts(
@@ -50,18 +52,19 @@ function PostBar () {
       ))
   }
 
-  function makePost (newPostTitle, newPostBody, username, postTag) {
-    fetch('/', {
+  function makePost (newPostTitle, newPostBody, postTag) {
+    console.log('MAKEPOST!!!!' , newPostTitle, newPostBody, postTag)
+    fetch('/main/createPost', {
       method: 'POST',
       headers: {
-        'Content-Type': 'Apllication.JSON',
+        'Content-Type': 'Application/JSON',
       },
       body: JSON.stringify({
-        newPostTitle: newPostTitle,
-        newPostBody: newPostBody,
+        postTitle: newPostTitle,
+        postBody: newPostBody,
         postTag: postTag
       })
-    }).then(mockData=> {
+    }).then(() => {
       dispatch(setAllPosts(
         <div>
             <div>
@@ -77,8 +80,8 @@ function PostBar () {
                       <h1>{newPostTitle}</h1>
                       <p>{newPostBody}</p>
                       <div>{postTag}</div>
-                      <div>{numLikes}</div>
-                      <div>{numComments}</div>
+                      <div>0</div>
+                      <div>0</div>
                     </div>
                   )
                 );
@@ -89,8 +92,8 @@ function PostBar () {
               <h1>{newPostTitle}</h1>
               <p>{newPostBody}</p>
               <div>{postTag}</div>
-              <div>{numLikes}</div>
-              <div>{numComments}</div>
+              <div>0</div>
+              <div>0</div>
             </button>
 
             <div>
@@ -120,7 +123,7 @@ function PostBar () {
         
         <button type="submit"
         onClick={() => {
-          mockPost(document.querySelector('#newPostTitle').value, document.querySelector('#newPostBody').value, currentUser, 15)
+          makePost(document.querySelector('#newPostTitle').value, document.querySelector('#newPostBody').value, 'uncategorized')
         }}>
           Post
         </button>

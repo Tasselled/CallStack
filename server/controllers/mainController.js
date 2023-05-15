@@ -25,9 +25,9 @@ mainController.getAllPosts = async (req, res, next) => {
 
 // Creating a post
 mainController.createPost = (req, res, next) => {
-    const {userId, postTitle, postBody, postTag, numLikes} = req.body;
-
-    Post.create({ userId, postTitle, postBody, postTag, numLikes })
+    const {postTitle, postBody, postTag } = req.body;
+    const userId = req.cookies.ssid;
+    Post.create({ userId, postTitle, postBody, postTag })
     .then((post) => {
       res.locals.post = post.id;
       return next();

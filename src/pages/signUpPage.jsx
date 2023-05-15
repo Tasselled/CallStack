@@ -15,7 +15,7 @@ function SignUpPage() {
     if (!firstName || !lastName || !username || !password) {
       dispatch(setErrorMessage(<p>You have some incomplete fields, please complete form</p>));
     } else {
-      fetch('/login', {
+      fetch('/login/signupRequest', {
         method: 'POST',
         headers: {
           'Content-Type': 'Application/JSON',
@@ -28,7 +28,7 @@ function SignUpPage() {
         }),
       }).then(() => {
         dispatch(setCurrentUser(username));
-        navigate(`/${username}`);
+        navigate(`/`);
       });
     }
   }
