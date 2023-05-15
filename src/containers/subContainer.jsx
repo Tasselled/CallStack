@@ -1,11 +1,13 @@
 import React from "react";
-import PostedDiv from "../components/postedDiv";
+import { useDispatch, useSelector } from "react-redux";
+
 
 
 
 
 
 function SubContainer () {
+
   const allPosts = useSelector(state=>state.userReducer.allPosts);
   return (
     <div>
