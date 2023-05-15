@@ -7,7 +7,7 @@
     "frontend": "NODE_ENV=development webpack-dev-server --open --hot --progress --color",
     "dev": "concurrently \"cross-env NODE_ENV=development webpack-dev-server --open --hot --progress --color \" \"NODE_ENV=development nodemon ./server/server.js\"",
     "build": "NODE_ENV=production webpack",
-    "server": "NODE_ENV=production nodemon ./server.js"
+    "server": "NODE_ENV=production nodemon ./server/server.js"
   },
   "author": "Sooji, Kevin, Hunter, Praise, Evram",
   "license": "MIT",

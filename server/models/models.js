@@ -59,6 +59,21 @@ const Comment = mongoose.model('comment', commentSchema);
 
 // const Subcomment = mongoose.model('subcomment', subcommentSchema);
 
+// Bcrypt Functionality:
+const SALT_WORK_FACTOR = 10;
+const bcrypt = require('bcryptjs');
+
+userSchema.pre('save', function(next) {
+  bcrypt.hash(this.password, SALT_WORK_FACTOR, (err, hash) => {
+    if(err) return next(err); // convert this to fit our global error handler format?
+
+    // reassign document's password to its hashed version:
+    this.password = hash;
+    return next();
+  });
+});
+
+
 module.exports = { User, Post, Comment };
 
 // database collection of collections

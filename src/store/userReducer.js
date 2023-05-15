@@ -40,4 +40,5 @@ export const userReducer = createSlice({
 
 export const { setCurrentUser, setCurrentPost, setErrorMessage, setTags, setSearchResultPosts, setAllPosts } = userReducer.actions;
 
+
 export default userReducer.reducer;

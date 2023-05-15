@@ -1,4 +1,5 @@
 const { User } = require('../models/models');
+const bcrypt = require('bcryptjs');
 
 const userController = {};
 
@@ -6,9 +7,18 @@ const userController = {};
 userController.createUser = (req, res, next) => {
   const { firstName, lastName, username, password } = req.body;
 
+  // Initial check to see if user inputted something into both fields:
+  // if(!username || !password) {
+  //   return next({
+  //     log: 'Missing username or password in userController.createUser',
+  //     status: 400,
+  //     message: {err: 'An error occured'},
+  //   });
+  // }
+
   User.create({ firstName, lastName, username, password })
-    .then((data) => {
-      res.locals.dataCreated = data;
+    .then((newUser) => {
+      res.locals.user = newUser.id; // Persisting document only through its unique id for now.
       return next();
     })
     .catch((err) => {
@@ -21,19 +31,40 @@ userController.createUser = (req, res, next) => {
 };
 
 // Finding a user
-userController.findUser = (req, res, next) => {
-  const { username } = req.params;
+userController.verifyUser = (req, res, next) => {
+  const { username, password } = req.body;
 
-  User.findOne({ username: username })
-    .then((data) => {
-      res.locals.dataFound = data;
-      return next();
+  // Could check !username || !password -> conditional, throw error.
+
+  User.findOne({ username })
+    .then((user) => {
+      // res.locals.dataFound = data;
+
+      if(!user) {
+        // Trying to send back a boolean to the frontend if the user is not found in DB, while also interruption the middleware chain (i.e. no 'return next()' here). Same logic in line 54 below.
+        res.send(false);
+      }
+
+      else {
+        bcrypt
+          .compare(password, user.password)
+          .then((result) => {
+            if(!result) {
+              // paswords did not match
+              res.send(false);
+            } else {
+              // passwords match!
+              res.locals.user = user.id;
+              return next();
+            }
+          });
+      };
     })
     .catch((err) => {
       return next({
-        log: `findUser: ${err}`,
+        log: `verifyUser: ${err}`,
         status: 400,
-        message: { err: 'error occurred in findUser controller' },
+        message: { err: 'error occurred in verifyUser controller' },
       });
     });
 };
