@@ -22,8 +22,7 @@ function App() {
                 <Route path={`/${currentUser}`} element={<MainPage />}/>                
                 <Route path='/signuppage' element={<SignUpPage />}/>
                 <Route path='/loginpage' element={<LoginPage />}/>
-                {/* <Route path='/' element={<WelcomePage />}/> */}
-                <Route path={`/`} element={<MainPage />}/>  
+                <Route path='/' element={<WelcomePage />}/>
             </Routes>
         );
  }
