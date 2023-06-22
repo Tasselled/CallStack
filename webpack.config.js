@@ -24,13 +24,13 @@ module.exports = {
     headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
       '/static/**': {
-        target: 'http://localhost:3000/',
+        target: 'http://localhost:3001/',
       },
       '/login/**': {
-        target: 'http://localhost:3000/',
+        target: 'http://localhost:3001/',
       },
       '/main/**': {
-        target: 'http://localhost:3000/',
+        target: 'http://localhost:3001/',
       },
     },
   },

@@ -2,13 +2,16 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
-const PORT = 3000;
+const PORT = 3001;
 
 // Parsing urlencoded content in request body
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
+if (process.env.NODE_ENV === 'production') {
+  app.use('/', express.static(path.resolve(__dirname, '../dist')));
+}
 // Handling request for static files
 app.use('/static', express.static(path.resolve(__dirname, '../src')));
 
